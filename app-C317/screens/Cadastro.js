@@ -4,7 +4,7 @@ import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
-export default function Cadastro() {
+export default function Cadastro(navigation) {
     const [nome, setNome] = useState(null)
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
@@ -13,9 +13,9 @@ export default function Cadastro() {
     const cadastrar = () => {
         //navigation.reset({
         //    index: 0,
-        //    routes: [{name: "Cadastro"}]
-        //  })
-        navigation.navigate("Inicio")
+        //    routes: [{name: "Principal"}]
+        //})
+        navigation.navigate("Principal")
     }
 
     return (
@@ -26,7 +26,6 @@ export default function Cadastro() {
             placeholder = "Nome completo" 
             rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
             onChangeText = {value => setNome(value)} 
-            keyboardType="name"
           />
 
           <Input 
@@ -48,7 +47,9 @@ export default function Cadastro() {
             rightIcon = {{ type: 'font-awesome', name: 'check' }} 
             onChangeText = {value => setCpf(value)} 
             secureTextEntry={ true }
-          />
+            /* Poderia ter usado o keyboardType="number-pad" e dessa forma somente numeros seriam aceitos*/
+            returnKeyType="done"
+          /> 
     
           <Button
             icon = {

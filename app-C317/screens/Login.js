@@ -13,9 +13,9 @@ export default function Login(navigation) {
     const entrar = () => {
         //navigation.reset({
         //    index: 0,
-        //    routes: [{name: "Cadastro"}]
+        //    routes: [{name: "Principal"}]
         //  })
-        navigation.navigate("Inicio")
+        navigation.navigate("Principal")
     }
 
     return (

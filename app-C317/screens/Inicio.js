@@ -7,19 +7,19 @@ import styles from '../style/MainStyle';
 export default function Inicio({navigation}) {
 
   const login = () => {
-    //navigation.reset({
-    //  index: 0,
-    //  routes: [{name: "Login"}]
-    //})
-    navigation.navigate("Login")
+    navigation.reset({
+      index: 0,
+      routes: [{name: "Login"}]
+    })
+    //navigation.navigate("Login")
   }
 
   const cadastrar = () => {
-    //navigation.reset({
-    //  index: 0,
-    //  routes: [{name: "Cadastro"}]
-    //})
-    navigation.navigate("Cadastro")
+    navigation.reset({
+      index: 0,
+      routes: [{name: "Cadastro"}]
+    })
+    //navigation.navigate("Cadastro")
   }
 
   return (
@@ -34,7 +34,8 @@ export default function Inicio({navigation}) {
             color="white"
           />
         }
-        title="Entrar"
+        title=" Entrar"
+        buttonStyle = {specificStyle.button}
         onPress={() => login()}
       />
 
@@ -46,7 +47,8 @@ export default function Inicio({navigation}) {
             color="white"
           />
         }
-        title="Cadastre-se"
+        title=" Cadastre-se"
+        buttonStyle = {specificStyle.button}
         onPress={() => cadastrar()}
       />
     </View>
@@ -56,5 +58,10 @@ export default function Inicio({navigation}) {
 const specificStyle = StyleSheet.create({
   specificContainer: {
     backgroundColor: "#fff"
+  },
+
+  button: {
+    width: "100%",
+    marginTop: 10
   }
 })
