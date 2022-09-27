@@ -4,37 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-function Notificacoes() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notificacoes!</Text>
-    </View>
-  );
-}
+import Notificacoes from './Notificacoes';
+import Servico from './Servico';
+import Educacao from './Educacao';
+import Perfil from './Perfil';
 
-function Servico() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Servico!</Text>
-    </View>
-  );
-}
-
-function Educacao() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Educacao!</Text>
-    </View>
-  );
-}
-
-function Perfil() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Perfil!</Text>
-    </View>
-  );
-}
 
 const Tab = createBottomTabNavigator();
 

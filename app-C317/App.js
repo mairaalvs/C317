@@ -9,6 +9,10 @@ import Login from './screens/Login';
 import Inicio from './screens/Inicio';
 import Cadastro from './screens/Cadastro';
 import Principal from './screens/Principal';
+import Notificacoes from './screens/Notificacoes';
+import Servico from './screens/Servico';
+import Educacao from './screens/Educacao';
+import Perfil from './screens/Perfil';
 
 
 const Stack = createStackNavigator();
@@ -20,6 +24,10 @@ function MyStack() {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Cadastro" component={Cadastro} />
       <Stack.Screen name="Principal" component={Principal} />
+      <Stack.Screen name="Notificacoes" component={Notificacoes} />
+      <Stack.Screen name="Servico" component={Servico} />
+      <Stack.Screen name="Educacao" component={Educacao} />
+      <Stack.Screen name="Perfil" component={Perfil} />
             
     </Stack.Navigator>
 
