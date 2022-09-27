@@ -4,7 +4,7 @@ import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
-export default function Cadastro(navigation) {
+export default function Cadastro({navigation}) {
     const [nome, setNome] = useState(null)
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
@@ -60,6 +60,7 @@ export default function Cadastro(navigation) {
               />
             }
             title="Cadastrar-se"
+            buttonStyle = {specificStyle.button}
             onPress={() => cadastrar()}
           />
         </View>
@@ -69,5 +70,11 @@ export default function Cadastro(navigation) {
 const specificStyle = StyleSheet.create({
     specificContainer: {
       backgroundColor: "#fff"
+    },
+
+    button: {
+      width: "100%",
+      marginTop: 10,
+      borderRadius: 50
     }
   })

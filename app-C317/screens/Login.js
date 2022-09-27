@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
 
-export default function Login(navigation) {
+export default function Login({navigation}) {
 
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
@@ -45,6 +45,7 @@ export default function Login(navigation) {
               />
             }
             title="Entrar"
+            buttonStyle = {specificStyle.button}
             onPress={() => entrar()}
           />
         </View>
@@ -54,5 +55,11 @@ export default function Login(navigation) {
 const specificStyle = StyleSheet.create({
     specificContainer: {
       backgroundColor: "#fff"
+    },
+
+    button: {
+      width: "100%",
+      marginTop: 10,
+      borderRadius: 50
     }
   })

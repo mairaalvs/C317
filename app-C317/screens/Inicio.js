@@ -7,19 +7,19 @@ import styles from '../style/MainStyle';
 export default function Inicio({navigation}) {
 
   const login = () => {
-    navigation.reset({
-      index: 0,
-      routes: [{name: "Login"}]
-    })
-    //navigation.navigate("Login")
+    //navigation.reset({
+    //  index: 0,
+    //  routes: [{name: "Login"}]
+    //})
+    navigation.navigate("Login")
   }
 
   const cadastrar = () => {
-    navigation.reset({
-      index: 0,
-      routes: [{name: "Cadastro"}]
-    })
-    //navigation.navigate("Cadastro")
+    //navigation.reset({
+    //  index: 0,
+    //  routes: [{name: "Cadastro"}]
+    //})
+    navigation.navigate("Cadastro")
   }
 
   return (
@@ -62,6 +62,7 @@ const specificStyle = StyleSheet.create({
 
   button: {
     width: "100%",
-    marginTop: 10
+    marginTop: 10,
+    borderRadius: 50
   }
 })

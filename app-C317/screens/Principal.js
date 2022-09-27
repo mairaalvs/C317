@@ -4,26 +4,34 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-function Feed() {
+function Notificacoes() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed!</Text>
+      <Text>Notificacoes!</Text>
     </View>
   );
 }
 
-function Profile() {
+function Servico() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Profile!</Text>
+      <Text>Servico!</Text>
     </View>
   );
 }
 
-function Notifications() {
+function Educacao() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications!</Text>
+      <Text>Educacao!</Text>
+    </View>
+  );
+}
+
+function Perfil() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Perfil!</Text>
     </View>
   );
 }
@@ -35,34 +43,44 @@ export default function Principal() {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
+        tabBarActiveTintColor: '#1E90FF',
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={Feed}
+        name="Notificacoes"
+        component={Notificacoes}
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Notificações',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="bell" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Servico"
+        component={Servico}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Serviço',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="magnify" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Educacao"
+        component={Educacao}
+        options={{
+          tabBarLabel: 'Educação',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="book" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={Perfil}
+        options={{
+          tabBarLabel: 'Perfil',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
