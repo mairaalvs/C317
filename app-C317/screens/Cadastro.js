@@ -88,7 +88,8 @@ const specificStyle = StyleSheet.create({
     },
 
     buttonCadastrar: {
-      width: "100%",
+      left: 40,
+      width: "80%",
       marginTop: 30,
       borderRadius: 50
     },

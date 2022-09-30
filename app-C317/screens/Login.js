@@ -33,17 +33,17 @@ export default function Login({navigation}) {
           </Text>
           <Text style={specificStyle.subtitulo}>Entrar</Text>
           <Input
-            style={specificStyle.input} 
+            style={specificStyle.inputEmail} 
             placeholder = "E-mail" 
-            rightIcon = {{ type: 'font-awesome', name: 'check' }} 
+            rightIcon = {{ type: 'font-awesome', name: 'check'}} 
             onChangeText = {value => setEmail(value)} 
             keyboardType="email-address"
           />
     
           <Input
-            style={specificStyle.input} 
+            style={specificStyle.inputSenha} 
             placeholder = "Senha" 
-            rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
+            rightIcon = {{ type: 'font-awesome', name: 'eye'}} 
             onChangeText = {value => setPassword(value)} 
             secureTextEntry={ true }
           />
@@ -71,19 +71,27 @@ const specificStyle = StyleSheet.create({
     },
     
     buttonEntrar: {
-      width: "100%",
+      left: 40,
+      width: "80%",
       marginTop: 30,
       borderRadius: 50
     },
 
     subtitulo:{
+      top: 40,
       fontSize: 30,
       left: 20,
       fontWeight:'bold',
     },
 
-    input:{
+    inputEmail:{
       color: "#fff",
+      marginTop: 100,
+    },
+
+    inputSenha:{
+      color: "#fff",
+      marginTop: 10,
     },
 
     titulo:{

@@ -72,15 +72,18 @@ const specificStyle = StyleSheet.create({
   },
 
   buttonEntrar: {
-    width: "100%",
+    left: 40,
+    width: "80%",
     marginTop: 300,
-    borderRadius: 50
+    borderRadius: 50,
   },
 
   buttonCadastrar: {
-    width: "100%",
+    left: 40,
+    width: "80%",
     marginTop: 40,
-    borderRadius: 50
+    borderRadius: 50,
+    
   },
 
   titulo:{
