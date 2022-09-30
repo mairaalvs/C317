@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image, ImageBackground } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
@@ -23,9 +23,18 @@ export default function Inicio({navigation}) {
   }
 
   return (
-    <View style={[styles.container, specificStyle.specificContainer]}>
-      <Text h1>Seja bem-vindo(a)</Text>
-     
+    <View style={[styles.container, specificStyle.specificContainer]}>   
+      <ImageBackground
+        source={require('../assets/Welcome.png')}
+        style={specificStyle.welcome}
+      >
+      <Image
+        source={require('../assets/Logo-White.png')}
+        style={specificStyle.logo}
+      />
+      <Text style={specificStyle.titulo}>
+        Seja {'\n'} bem-vindo(a)
+      </Text>
       <Button
         icon = {
           <Icon
@@ -34,8 +43,8 @@ export default function Inicio({navigation}) {
             color="white"
           />
         }
-        title=" Entrar"
-        buttonStyle = {specificStyle.button}
+        title="Entrar"
+        buttonStyle = {specificStyle.buttonEntrar}
         onPress={() => login()}
       />
 
@@ -48,21 +57,55 @@ export default function Inicio({navigation}) {
           />
         }
         title=" Cadastre-se"
-        buttonStyle = {specificStyle.button}
+        buttonStyle = {specificStyle.buttonCadastrar}
         onPress={() => cadastrar()}
       />
+      </ImageBackground>
     </View>
   );
 }
 
 const specificStyle = StyleSheet.create({
   specificContainer: {
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    flex: 1,
   },
 
-  button: {
+  buttonEntrar: {
     width: "100%",
-    marginTop: 10,
+    marginTop: 300,
     borderRadius: 50
+  },
+
+  buttonCadastrar: {
+    width: "100%",
+    marginTop: 40,
+    borderRadius: 50
+  },
+
+  titulo:{
+    padding: 40,
+    fontSize: 32,
+    left: 3,
+    textAlign: 'left',
+    color: "#fff",
+    shadowColor:'#000',
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 4.65,
+  },
+
+  logo:{
+    top: 40,
+    left: 45,
+  },
+
+  welcome:{
+    width: "100%", 
+    height: "100%",
   }
+
 })
