@@ -4,18 +4,18 @@ import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
-
-export default function Login({navigation}) {
-
+export default function SingUp({navigation}) {
+    const [name, setName] = useState(null)
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
+    const [cpf, setCpf] = useState(null)
 
-    const entrar = () => {
+    const singUp = () => {
         //navigation.reset({
         //    index: 0,
         //    routes: [{name: "Principal"}]
-        //  })
-        navigation.navigate("Principal")
+        //})
+        navigation.navigate("Group")
     }
 
     return (
@@ -28,25 +28,42 @@ export default function Login({navigation}) {
             source={require('../assets/Logo-White.png')}
             style={specificStyle.logo}
           />
-          <Text style={specificStyle.titulo}>
+          <Text style={specificStyle.title}>
             Seja {'\n'} bem-vindo(a)
           </Text>
-          <Text style={specificStyle.subtitulo}>Entrar</Text>
+          <Text style={specificStyle.subtitle}>Cadastre-se</Text>
           <Input
-            style={specificStyle.inputEmail} 
+            style={specificStyle.input} 
+            placeholder = "Nome completo" 
+            rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
+            onChangeText = {value => setName(value)} 
+          />
+
+          <Input
+            style={specificStyle.input} 
             placeholder = "E-mail" 
-            rightIcon = {{ type: 'font-awesome', name: 'check'}} 
+            rightIcon = {{ type: 'font-awesome', name: 'check' }} 
             onChangeText = {value => setEmail(value)} 
             keyboardType="email-address"
           />
     
           <Input
-            style={specificStyle.inputSenha} 
+            style={specificStyle.input} 
             placeholder = "Senha" 
-            rightIcon = {{ type: 'font-awesome', name: 'eye'}} 
+            rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
             onChangeText = {value => setPassword(value)} 
             secureTextEntry={ true }
           />
+
+          <Input
+            style={specificStyle.input} 
+            placeholder = "CPF" 
+            rightIcon = {{ type: 'font-awesome', name: 'check' }} 
+            onChangeText = {value => setCpf(value)} 
+            secureTextEntry={ true }
+            /* Poderia ter usado o keyboardType="number-pad" e dessa forma somente numeros seriam aceitos*/
+            returnKeyType="done"
+          /> 
     
           <Button
             icon = {
@@ -56,9 +73,9 @@ export default function Login({navigation}) {
                 color="white"
               />
             }
-            title="Entrar"
-            buttonStyle = {specificStyle.buttonEntrar}
-            onPress={() => entrar()}
+            title="Cadastrar-se"
+            buttonStyle = {specificStyle.buttonSingUp}
+            onPress={() => singUp()}
           />
           </ImageBackground>
         </View>
@@ -69,32 +86,25 @@ const specificStyle = StyleSheet.create({
     specificContainer: {
       backgroundColor: "#fff"
     },
-    
-    buttonEntrar: {
+
+    buttonSingUp: {
       left: 40,
       width: "80%",
       marginTop: 30,
       borderRadius: 50
     },
 
-    subtitulo:{
-      top: 40,
+    subtitle:{
       fontSize: 30,
       left: 20,
       fontWeight:'bold',
     },
 
-    inputEmail:{
+    input:{
       color: "#fff",
-      marginTop: 100,
     },
 
-    inputSenha:{
-      color: "#fff",
-      marginTop: 10,
-    },
-
-    titulo:{
+    title:{
       padding: 40,
       fontSize: 32,
       left: 3,

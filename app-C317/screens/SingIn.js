@@ -4,18 +4,18 @@ import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
-export default function Cadastro({navigation}) {
-    const [nome, setNome] = useState(null)
+
+export default function SingIn({navigation}) {
+
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
-    const [cpf, setCpf] = useState(null)
 
-    const cadastrar = () => {
+    const login = () => {
         //navigation.reset({
         //    index: 0,
         //    routes: [{name: "Principal"}]
-        //})
-        navigation.navigate("Principal")
+        //  })
+        navigation.navigate("Group")
     }
 
     return (
@@ -28,42 +28,27 @@ export default function Cadastro({navigation}) {
             source={require('../assets/Logo-White.png')}
             style={specificStyle.logo}
           />
-          <Text style={specificStyle.titulo}>
+          <Text style={specificStyle.title}>
             Seja {'\n'} bem-vindo(a)
           </Text>
-          <Text style={specificStyle.subtitulo}>Cadastre-se</Text>
-          <Input
-            style={specificStyle.input} 
-            placeholder = "Nome completo" 
-            rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
-            onChangeText = {value => setNome(value)} 
-          />
+          <Text style={specificStyle.subtitle}>Entrar</Text>
 
-          <Input
-            style={specificStyle.input} 
-            placeholder = "E-mail" 
-            rightIcon = {{ type: 'font-awesome', name: 'check' }} 
-            onChangeText = {value => setEmail(value)} 
-            keyboardType="email-address"
-          />
-    
-          <Input
-            style={specificStyle.input} 
-            placeholder = "Senha" 
-            rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
-            onChangeText = {value => setPassword(value)} 
-            secureTextEntry={ true }
-          />
-
-          <Input
-            style={specificStyle.input} 
-            placeholder = "CPF" 
-            rightIcon = {{ type: 'font-awesome', name: 'check' }} 
-            onChangeText = {value => setCpf(value)} 
-            secureTextEntry={ true }
-            /* Poderia ter usado o keyboardType="number-pad" e dessa forma somente numeros seriam aceitos*/
-            returnKeyType="done"
-          /> 
+          <View style={specificStyle.inputView}>
+            <Input
+              placeholder = "E-mail" 
+              rightIcon = {{ type: 'font-awesome', name: 'check'}} 
+              onChangeText = {value => setEmail(value)} 
+              keyboardType="email-address"
+            />
+      
+            <Input
+              placeholder = "Senha" 
+              rightIcon = {{ type: 'font-awesome', name: 'eye'}} 
+              onChangeText = {value => setPassword(value)} 
+              secureTextEntry={ true }
+            />
+          </View>
+          
     
           <Button
             icon = {
@@ -73,9 +58,9 @@ export default function Cadastro({navigation}) {
                 color="white"
               />
             }
-            title="Cadastrar-se"
-            buttonStyle = {specificStyle.buttonCadastrar}
-            onPress={() => cadastrar()}
+            title="Entrar"
+            buttonStyle = {specificStyle.buttonLogin}
+            onPress={() => login()}
           />
           </ImageBackground>
         </View>
@@ -86,25 +71,27 @@ const specificStyle = StyleSheet.create({
     specificContainer: {
       backgroundColor: "#fff"
     },
-
-    buttonCadastrar: {
+    
+    buttonLogin: {
       left: 40,
       width: "80%",
       marginTop: 30,
       borderRadius: 50
     },
 
-    subtitulo:{
+    subtitle:{
+      top: 40,
       fontSize: 30,
       left: 20,
       fontWeight:'bold',
     },
 
-    input:{
-      color: "#fff",
+    inputView:{
+      color: "#3A3A3A",
+      marginTop: 100,
     },
 
-    titulo:{
+    title:{
       padding: 40,
       fontSize: 32,
       left: 3,

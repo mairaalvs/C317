@@ -4,15 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Notificacoes from './Notificacoes';
-import Servico from './Servico';
-import Educacao from './Educacao';
-import Perfil from './Perfil';
+import Notification from './Notification';
+import Services from './Services';
+import Studies from './Studies';
+import Profile from './Profile';
 
 
 const Tab = createBottomTabNavigator();
 
-export default function Principal() {
+export default function Group() {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
@@ -22,7 +22,7 @@ export default function Principal() {
     >
       <Tab.Screen
         name="Notificacoes"
-        component={Notificacoes}
+        component={Notification}
         options={{
           tabBarLabel: 'Notificações',
           tabBarIcon: ({ color, size }) => (
@@ -32,7 +32,7 @@ export default function Principal() {
       />
       <Tab.Screen
         name="Servico"
-        component={Servico}
+        component={Services}
         options={{
           tabBarLabel: 'Serviço',
           tabBarIcon: ({ color, size }) => (
@@ -42,7 +42,7 @@ export default function Principal() {
       />
       <Tab.Screen
         name="Educacao"
-        component={Educacao}
+        component={Studies}
         options={{
           tabBarLabel: 'Educação',
           tabBarIcon: ({ color, size }) => (
@@ -52,7 +52,7 @@ export default function Principal() {
       />
       <Tab.Screen
         name="Perfil"
-        component={Perfil}
+        component={Profile}
         options={{
           tabBarLabel: 'Perfil',
           tabBarIcon: ({ color, size }) => (

@@ -4,22 +4,22 @@ import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
-export default function Inicio({navigation}) {
+export default function Welcome({navigation}) {
 
   const login = () => {
     //navigation.reset({
     //  index: 0,
     //  routes: [{name: "Login"}]
     //})
-    navigation.navigate("Login")
+    navigation.navigate("SingIn")
   }
 
-  const cadastrar = () => {
+  const singUp = () => {
     //navigation.reset({
     //  index: 0,
     //  routes: [{name: "Cadastro"}]
     //})
-    navigation.navigate("Cadastro")
+    navigation.navigate("SingUp")
   }
 
   return (
@@ -32,7 +32,7 @@ export default function Inicio({navigation}) {
         source={require('../assets/Logo-White.png')}
         style={specificStyle.logo}
       />
-      <Text style={specificStyle.titulo}>
+      <Text style={specificStyle.title}>
         Seja {'\n'} bem-vindo(a)
       </Text>
       <Button
@@ -44,7 +44,7 @@ export default function Inicio({navigation}) {
           />
         }
         title="Entrar"
-        buttonStyle = {specificStyle.buttonEntrar}
+        buttonStyle = {specificStyle.buttonLogin}
         onPress={() => login()}
       />
 
@@ -57,8 +57,8 @@ export default function Inicio({navigation}) {
           />
         }
         title=" Cadastre-se"
-        buttonStyle = {specificStyle.buttonCadastrar}
-        onPress={() => cadastrar()}
+        buttonStyle = {specificStyle.buttonSingUp}
+        onPress={() => singUp()}
       />
       </ImageBackground>
     </View>
@@ -71,14 +71,14 @@ const specificStyle = StyleSheet.create({
     flex: 1,
   },
 
-  buttonEntrar: {
+  buttonLogin: {
     left: 40,
     width: "80%",
     marginTop: 300,
     borderRadius: 50,
   },
 
-  buttonCadastrar: {
+  buttonSingUp: {
     left: 40,
     width: "80%",
     marginTop: 40,
@@ -86,7 +86,7 @@ const specificStyle = StyleSheet.create({
     
   },
 
-  titulo:{
+  title:{
     padding: 40,
     fontSize: 32,
     left: 3,

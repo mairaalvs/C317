@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Button, Input, Text } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from './style/MainStyle';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Login from './screens/Login';
-import Inicio from './screens/Inicio';
-import Cadastro from './screens/Cadastro';
-import Principal from './screens/Principal';
-import Notificacoes from './screens/Notificacoes';
-import Servico from './screens/Servico';
-import Educacao from './screens/Educacao';
-import Perfil from './screens/Perfil';
+import SingIn from './screens/SingIn';
+import Welcome from './screens/Welcome';
+import SingUp from './screens/SingUp';
+import Group from './screens/Group';
+import Notification from './screens/Notification';
+import Services from './screens/Services';
+import Studies from './screens/Studies';
+import Profile from './screens/Profile';
 
 
 const Stack = createStackNavigator();
@@ -20,14 +16,14 @@ const Stack = createStackNavigator();
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Inicio" component={Inicio} options={{ headerShown: false }} />
-      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-      <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }} />
-      <Stack.Screen name="Principal" component={Principal} options={{ headerShown: false }} />
-      <Stack.Screen name="Notificacoes" component={Notificacoes} options={{ headerShown: false }} />
-      <Stack.Screen name="Servico" component={Servico} options={{ headerShown: false }} />
-      <Stack.Screen name="Educacao" component={Educacao} options={{ headerShown: false }} />
-      <Stack.Screen name="Perfil" component={Perfil} options={{ headerShown: false }} />
+      <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
+      <Stack.Screen name="SingIn" component={SingIn} options={{ headerShown: false }} />
+      <Stack.Screen name="SingUp" component={SingUp} options={{ headerShown: false }} />
+      <Stack.Screen name="Group" component={Group} options={{ headerShown: false }} />
+      <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
+      <Stack.Screen name="Services" component={Services} options={{ headerShown: false }} />
+      <Stack.Screen name="Studies" component={Studies} options={{ headerShown: false }} />
+      <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
             
     </Stack.Navigator>
 

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, StatusBar, SafeAreaView, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Notificacoes() {
+export default function Services() {
 
   const [text, setText] = useState("");
 
   return (
     <SafeAreaView style = {specificStyle.view}>
-      <View style = {specificStyle.cabecalho}>
+      <View style = {specificStyle.header}>
       <TextInput 
           style = {specificStyle.input} 
           placeholder='Buscar' 
@@ -23,7 +23,6 @@ export default function Notificacoes() {
           onPress={() => {}}
         />
         </TextInput>
-        
       </View>
       
     </SafeAreaView>
@@ -34,7 +33,7 @@ const specificStyle = StyleSheet.create({
   view:{
     marginTop: 5
   },
-  cabecalho:{
+  header:{
     flexDirection: "row",
     justifyContent: "space-between"
   },
@@ -47,4 +46,3 @@ const specificStyle = StyleSheet.create({
     paddingHorizontal: 20,
   }
 });
-  

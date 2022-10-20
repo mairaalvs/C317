@@ -4,15 +4,15 @@ import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
-export default function Educacao() {
-  const cadastrar = () => {
+export default function Studies() {
+  const singUp = () => {
     navigation.navigate()
   }
 
   return (
     <View style={[styles.container, specificStyle.specificContainer]}>
     <Image
-      source={require('../assets/books.png')}
+      source={require('../assets/Books.png')}
       style={specificStyle.books}
     />
     <Image
@@ -24,15 +24,15 @@ export default function Educacao() {
       style={specificStyle.ellipse}
     >
     <Text
-      style={specificStyle.titulo}
+      style={specificStyle.title}
     > Como precificar seus serviços </Text>
     <Text
-      style={specificStyle.subTitulo}
+      style={specificStyle.title}
     > Aprenda como precificar corretamente os seus serviços e a sua hora de trabalho </Text>
     <Button
       title="Ler artigo"
-      buttonStyle = {specificStyle.buttonArtigo}
-      onPress={() => cadastrar()}
+      buttonStyle = {specificStyle.buttonArticle}
+      onPress={() => singUp()}
     />
     </ImageBackground>
     </View>
@@ -53,14 +53,14 @@ const specificStyle = StyleSheet.create({
     
   },
 
-  buttonArtigo: {
+  buttonArticle: {
     left: 40,
     width: "80%",
     marginTop: 10,
     borderRadius: 50
   },
 
-  titulo:{
+  title:{
     padding: 15,
     fontSize: 28,
     textAlign: 'left',
@@ -68,7 +68,7 @@ const specificStyle = StyleSheet.create({
     
   },
 
-  subTitulo:{
+  subtitle:{
     padding: 15,
     fontSize: 18,
     textAlign: 'left',
