@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Image } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
@@ -48,20 +48,22 @@ export default function SingIn({navigation}) {
               secureTextEntry={ true }
             />
           </View>
-          
-    
-          <Button
-            icon = {
-              <Icon
-                name="arrow-right"
-                size={15}
-                color="white"
-              />
-            }
-            title="Entrar"
-            buttonStyle = {specificStyle.buttonLogin}
-            onPress={() => login()}
-          />
+  
+          <TouchableOpacity
+            style={specificStyle.buttonSingIn} 
+            activeOpacity={0.5}
+            onPress={() => login()} >
+            <Text style={specificStyle.buttonTextStyle}> 
+              Entrar 
+            </Text> 
+            <View>
+            <ImageBackground 
+              source={require('../assets/Circles-Arrow.png')} 
+              style={specificStyle.buttonImageIconStyle} 
+            /> 
+            </View>  
+          </TouchableOpacity>
+
           </ImageBackground>
         </View>
       );
@@ -76,7 +78,8 @@ const specificStyle = StyleSheet.create({
       left: 40,
       width: "80%",
       marginTop: 30,
-      borderRadius: 50
+      borderRadius: 16,
+      backgroundColor: '#4960F9',
     },
 
     subtitle:{
@@ -89,6 +92,33 @@ const specificStyle = StyleSheet.create({
     inputView:{
       color: "#3A3A3A",
       marginTop: 100,
+    },
+
+    buttonSingIn: {
+      flexDirection: 'row',
+      justifyContent: 'space-between', 
+      alignItems: 'center', 
+      backgroundColor: '#4960F9',
+      height: 45,
+      left: 40,  
+      width: "80%",
+      marginTop: 60, 
+      borderRadius: 16, 
+    },
+  
+    buttonImageIconStyle: {
+      right: 2,
+      padding: 22.5,
+      height: 40,
+      width: 60,
+      resizeMode: 'contain',
+    },
+  
+    buttonTextStyle: {
+      color: '#fff', 
+      marginLeft: 15,
+      fontSize: 18,
+   
     },
 
     title:{

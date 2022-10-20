@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, ImageBackground } from 'react-native';
+import { StyleSheet, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
@@ -35,28 +35,32 @@ export default function Welcome({navigation}) {
       <Text style={specificStyle.title}>
         Seja {'\n'} bem-vindo(a)
       </Text>
-      <Button
-        icon = {
-          <Icon
-            name="arrow-right"
-            size={15}
-            color="white"
-          />
-        }
-        title="Entrar"
-        buttonStyle = {specificStyle.buttonLogin}
-        onPress={() => login()}
-      />
+      
+      <TouchableOpacity
+          style={specificStyle.buttonSingIn} 
+          activeOpacity={0.5}
+          onPress={() => login()} >
+          <Text style={specificStyle.buttonTextStyle}> 
+            Entrar 
+          </Text> 
+          <View>
+          <ImageBackground 
+            source={require('../assets/Circles-Arrow.png')} 
+            style={specificStyle.buttonImageIconStyle} 
+          /> 
+          </View>  
+        </TouchableOpacity>
 
       <Button
         icon = {
           <Icon
             name="arrow-right"
             size={15}
-            color="white"
+            color="#4960F9"
           />
         }
-        title=" Cadastre-se"
+        title="Cadastre-se"
+        titleStyle = {specificStyle.buttonText}
         buttonStyle = {specificStyle.buttonSingUp}
         onPress={() => singUp()}
       />
@@ -75,15 +79,50 @@ const specificStyle = StyleSheet.create({
     left: 40,
     width: "80%",
     marginTop: 300,
-    borderRadius: 50,
+    borderRadius: 16,
+    backgroundColor: '#4960F9',
   },
 
   buttonSingUp: {
     left: 40,
     width: "80%",
     marginTop: 40,
-    borderRadius: 50,
+    borderRadius: 16,
+    backgroundColor: '#FFF',
+    borderWidth: '1.5',
+    borderColor: '#4960F9',
     
+  },
+
+  buttonText: {
+    color: '#4960F9', 
+  },
+
+  buttonSingIn: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    backgroundColor: '#4960F9',
+    height: 45,
+    left: 40,  
+    width: "80%",
+    marginTop: 300, 
+    borderRadius: 16, 
+  },
+
+  buttonImageIconStyle: {
+    right: 2,
+    padding: 22.5,
+    height: 40,
+    width: 60,
+    resizeMode: 'contain',
+  },
+
+  buttonTextStyle: {
+    color: '#fff', 
+    marginLeft: 15,
+    fontSize: 18,
+ 
   },
 
   title:{

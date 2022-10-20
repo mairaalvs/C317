@@ -17,7 +17,7 @@ export default function Group() {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
-        tabBarActiveTintColor: '#1E90FF',
+        tabBarActiveTintColor: '#4960F9',
       }}
     >
       <Tab.Screen
