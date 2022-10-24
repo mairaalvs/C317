@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Notification from './Notification';
-import Services from './ServicoChat';
+import Services from './Services';
 import Studies from './Studies';
 import Profile from './Profile';
 
