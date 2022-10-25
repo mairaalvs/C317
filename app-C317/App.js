@@ -6,9 +6,10 @@ import Welcome from './screens/Welcome';
 import SingUp from './screens/SingUp';
 import Group from './screens/Group';
 import Notification from './screens/Notification';
-import Services from './screens/Services';
+import Services from './screens/ServicoChat';
 import Studies from './screens/Studies';
 import Profile from './screens/Profile';
+import Chat from './screens/Chat';
 
 
 const Stack = createStackNavigator();
@@ -24,6 +25,7 @@ function MyStack() {
       <Stack.Screen name="Services" component={Services} options={{ headerShown: false }} />
       <Stack.Screen name="Studies" component={Studies} options={{ headerShown: false }} />
       <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+      <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
             
     </Stack.Navigator>
 
