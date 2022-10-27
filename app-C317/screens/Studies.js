@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
@@ -10,6 +10,7 @@ export default function Studies({navigation}) {
   }
 
   return (
+    <ScrollView>
     <View style={[styles.container, specificStyle.specificContainer]}>
       <View style={specificStyle.view}>
         <Image
@@ -53,6 +54,7 @@ export default function Studies({navigation}) {
         </View>
       </ImageBackground>
     </View>
+    </ScrollView>
   );
 }
 
