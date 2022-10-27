@@ -1,43 +1,35 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState, useCallback, useEffect } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 
-export default function Chat({navigation}) {
+export default function Chat2() {
+  const [messages, setMessages] = useState([]);
 
-    const user = {
+  useEffect(() => {
+    setMessages([
+      {
         _id: 1,
-        name: 'Maria',
-        avatar: 'url'
-    }
-
-    const messages = [
-        {
-            _id: 1,
-            text: 'Ola pessoal',
-            createdAt: new Date(),
-            user: {
-                _id: 2,
-                name: 'Joao',
-                avatar: 'teste',
-            },
+        text: 'Olá!',
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'React Native',
+          avatar: 'https://placeimg.com/140/140/any',
         },
-        {
-            _id: 1,
-            text: 'Tudo bom!',
-            createdAt: new Date(),
-            user: {
-                _id: 2,
-                name: 'Joao',
-                avatar: 'teste'
-            },
-        },
-    ]
+      },
+    ])
+  }, [])
 
-    function onSendMessage(messages) {
-        console.log(messages);
-    }
+  const onSend = useCallback((messages = []) => {
+    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+  }, [])
 
   return (
-    <GiftedChat user={user} messages={messages} onSend={onSendMessage} />
-  );
+    <GiftedChat
+      messages={messages}
+      onSend={messages => onSend(messages)}
+      user={{
+        _id: 1,
+      }}
+    />
+  )
 }

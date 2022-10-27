@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 
 export default function ServicoChat({navigation}) {
+
+  const [name, setName] = useState("")
 
   const chat = () => {
     navigation.navigate("Chat")
@@ -10,13 +12,16 @@ export default function ServicoChat({navigation}) {
   return (
     <View style={specificStyle.specificContainer} >
       <Text style={specificStyle.text} >Nome do usuario</Text>
-      <TextInput style={specificStyle.input} />
+      <TextInput 
+        style={specificStyle.input}
+        value = {name} 
+        onChangeText = {setName} />
       <TouchableOpacity
-      onPress={() => chat()} >
-          <Text style={specificStyle.button} > 
-            Entrar 
-          </Text>  
-        </TouchableOpacity>
+        onPress= {() => chat()} >
+        <Text style={specificStyle.button} > 
+          Entrar 
+        </Text>  
+      </TouchableOpacity>
     </View>
   );
 }
