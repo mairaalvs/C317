@@ -6,7 +6,7 @@ import Welcome from './screens/Welcome';
 import SingUp from './screens/SingUp';
 import Group from './screens/Group';
 import Notification from './screens/Notification';
-import Services from './screens/ServicoChat';
+import Services from './screens/Services';
 import Studies from './screens/Studies';
 import Profile from './screens/Profile';
 import Chat from './screens/Chat';

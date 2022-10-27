@@ -11,16 +11,32 @@ export default function ServicoChat({navigation}) {
 
   return (
     <View style={specificStyle.specificContainer} >
-      <Text style={specificStyle.text} >Nome do usuario</Text>
-      <TextInput 
-        style={specificStyle.input}
-        value = {name} 
-        onChangeText = {setName} />
+        <View>
+          <TextInput 
+            style = {specificStyle.input} 
+            placeholder='Buscar' 
+            value={text} 
+            onChangeText={(value) => 
+            setText(value)}
+          >
+          <Icon
+            name="search"
+            size={30}
+            color='#3D56FA'
+            onPress={() => {}}
+          />
+          </TextInput>
+        </View>
+        
+
+      <Text style={specificStyle.textSubTitle} >Ana Luiza</Text>
+      <Text style={specificStyle.textName} >Faxineiro(a) R$250</Text>
       <TouchableOpacity
         onPress= {() => chat()} >
         <Text style={specificStyle.button} > 
-          Entrar 
-        </Text>  
+          Ana Luiza 
+        </Text>
+        <Text> Faxineiro(a) R$250 </Text>  
       </TouchableOpacity>
     </View>
   );
@@ -33,20 +49,27 @@ const specificStyle = StyleSheet.create({
     padding: 10,
   }, 
 
-  text: {
+  textName: {
     marginTop: 10,
     fontSize: 20,
-  },
-
-  input: {
-    marginTop: 10,
-    borderWidth: 1,
-    borderColor: "black",
-    padding: 10,
   },
 
   button: {
     marginTop: 10,
     fontSize: 20,
   },
+
+  header:{
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+
+  input:{
+    flex: 1,
+    backgroundColor: "white",
+    color:'#2743FD',
+    borderRadius: 25,
+    fontSize: 20,
+    paddingHorizontal: 20,
+  }
 })
