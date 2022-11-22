@@ -14,7 +14,7 @@ export default function Studies({navigation}) {
     <View style={[styles.container, specificStyle.specificContainer]}>
       <View style={specificStyle.view}>
         <Image
-          source={require('../assets/Books.png')}
+          source={require('../assets/books.png')}
         />
         <Image
           source={require('../assets/Trading.png')}
