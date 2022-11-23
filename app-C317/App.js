@@ -5,11 +5,12 @@ import SingIn from './screens/SingIn';
 import Welcome from './screens/Welcome';
 import SingUp from './screens/SingUp';
 import Group from './screens/Group';
-import Notification from './screens/Notification';
+import Messages from './screens/Messages';
 import Services from './screens/Services';
 import Studies from './screens/Studies';
 import Profile from './screens/Profile';
 import Chat from './screens/Chat';
+import Profile2 from './screens/Profile2';
 
 
 const Stack = createStackNavigator();
@@ -21,11 +22,12 @@ function MyStack() {
       <Stack.Screen name="SingIn" component={SingIn} options={{ headerShown: false }} />
       <Stack.Screen name="SingUp" component={SingUp} options={{ headerShown: false }} />
       <Stack.Screen name="Group" component={Group} options={{ headerShown: false }} />
-      <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
+      <Stack.Screen name="Messages" component={Messages} options={{ headerShown: false }} />
       <Stack.Screen name="Services" component={Services} options={{ headerShown: false }} />
       <Stack.Screen name="Studies" component={Studies} options={{ headerShown: false }} />
       <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
+      <Stack.Screen name="Profile2" component={Profile2} options={{ headerShown: false }} />
             
     </Stack.Navigator>
 

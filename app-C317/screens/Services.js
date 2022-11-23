@@ -6,8 +6,8 @@ export default function Services({navigation}) {
 
   const [text, setText] = useState("");
 
-  const chat = () => {
-    navigation.navigate("Chat")
+  const profile = () => {
+    navigation.navigate("Profile2")
   }
 
   return (
@@ -34,7 +34,7 @@ export default function Services({navigation}) {
       <TouchableOpacity
         style={specificStyle.button} 
         activeOpacity={0.5}
-        onPress={() => chat()} >
+        onPress={() => profile()} >
         
         <View style={specificStyle.viewImage}>
           <Image
@@ -64,7 +64,7 @@ export default function Services({navigation}) {
       <TouchableOpacity
         style={specificStyle.button} 
         activeOpacity={0.5}
-        onPress={() => chat()} >
+        onPress={() => profile()} >
         
         <View style={specificStyle.viewImage}>
           <Image
@@ -94,7 +94,7 @@ export default function Services({navigation}) {
       <TouchableOpacity
         style={specificStyle.button} 
         activeOpacity={0.5}
-        onPress={() => chat()} >
+        onPress={() => profile()} >
         
         <View style={specificStyle.viewImage}>
           <Image
@@ -124,7 +124,7 @@ export default function Services({navigation}) {
       <TouchableOpacity
         style={specificStyle.button} 
         activeOpacity={0.5}
-        onPress={() => chat()} >
+        onPress={() => profile()} >
         
         <View style={specificStyle.viewImage}>
           <Image
@@ -154,7 +154,7 @@ export default function Services({navigation}) {
       <TouchableOpacity
         style={specificStyle.button} 
         activeOpacity={0.5}
-        onPress={() => chat()} >
+        onPress={() => profile()} >
         
         <View style={specificStyle.viewImage}>
           <Image
@@ -184,7 +184,7 @@ export default function Services({navigation}) {
       <TouchableOpacity
         style={specificStyle.button} 
         activeOpacity={0.5}
-        onPress={() => chat()} >
+        onPress={() => profile()} >
         
         <View style={specificStyle.viewImage}>
           <Image
@@ -214,7 +214,7 @@ export default function Services({navigation}) {
       <TouchableOpacity
         style={specificStyle.button} 
         activeOpacity={0.5}
-        onPress={() => chat()} >
+        onPress={() => profile()} >
         
         <View style={specificStyle.viewImage}>
           <Image

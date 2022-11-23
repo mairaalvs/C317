@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Notification from './Notification';
+import Messages from './Messages';
 import Services from './Services';
 import Studies from './Studies';
 import Profile from './Profile';
@@ -21,12 +21,12 @@ export default function Group() {
       }}
     >
       <Tab.Screen
-        name="Notificacoes"
-        component={Notification}
+        name="Mensagens"
+        component={Messages}
         options={{
-          tabBarLabel: 'Notificações',
+          tabBarLabel: 'Mensagens',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="message-reply" color={color} size={size} />
           ),
         }}
       />
