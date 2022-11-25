@@ -51,7 +51,7 @@ export default function Services({navigation}) {
               </Text>
               <Text style={specificStyle.buttonMessage}
                     /*onChangeText = {value => setEmail(value)}                    NÂO ESQUECER*/> 
-                Faxineiro(a) R$20
+                Desenvolvedora(a) R$150
               </Text>
             </View>
 
