@@ -10,13 +10,23 @@ export default function SingIn({navigation}) {
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
 
-    const login = () => {
-        //navigation.reset({
-        //    index: 0,
-        //    routes: [{name: "Principal"}]
-        //  })
-        navigation.navigate("Group")
+    const login = async() => {
+      const response = await fetch("http://localhost:3000/api/login", {
+        method:"POST", headers:{
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }, 
+        body: JSON.stringify( {
+            "email": "juliana@gmail.com",
+            "password": "Abc@123"
+        })
+      });
+      console.log(response.json())
+
+      navigation.navigate("Group")
     }
+
+
 
     return (
         <View style={[styles.container, specificStyle.specificContainer]}>

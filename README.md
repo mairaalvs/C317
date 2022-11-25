@@ -23,7 +23,7 @@ Porém essa flexibilidade faz com que esses profissionais trabalhem em jornadas 
 
 - Clone este repositório
 ```
-$ https://github.com/mairaalvs/S206-Cypress.git
+https://github.com/mairaalvs/C317.git
 ```
 
 - Abra o terminal na pasta do projeto e instale suas dependências:
@@ -35,3 +35,6 @@ npm install
 ```
 expo start
 ```
+
+No terminal aparecerá um QR Code, através do aplicativo Expo Go instalado no seu celular leia o QR Code para que o aplicativo rode em seu celular. 
+
