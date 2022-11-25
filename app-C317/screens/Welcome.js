@@ -58,7 +58,7 @@ export default function Welcome({navigation}) {
             activeOpacity={0.5}
             onPress={() => singUp()} >
             <Text style={specificStyle.buttonTextStyle2}> 
-              Sair 
+              Cadastre-se 
             </Text> 
             <View>
             <ImageBackground 
