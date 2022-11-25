@@ -6,7 +6,7 @@ import styles from '../style/MainStyle';
 
 export default function Studies({navigation}) {
   const singUp = () => {
-    navigation.navigate("Group")
+    navigation.navigate("Studies2")
   }
 
   return (
@@ -39,9 +39,9 @@ export default function Studies({navigation}) {
           <TouchableOpacity
             style={specificStyle.buttonSingIn} 
             activeOpacity={0.5}
-            onPress={() => login()} >
+            onPress={() => singUp()} >
             <Text style={specificStyle.buttonTextStyle}> 
-              Ler artigo 
+              Ver conteúdo 
             </Text> 
             <View>
               <ImageBackground 

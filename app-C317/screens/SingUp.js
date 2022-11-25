@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
@@ -25,7 +27,7 @@ export default function SingUp({navigation}) {
             style={specificStyle.signIn}
           >
           <Image
-            source={require('../assets/Logo-White.png')}
+            source={require('../assets/Hourglass.png')}
             style={specificStyle.logo}
           />
           <Text style={specificStyle.title}>

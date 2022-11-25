@@ -29,11 +29,11 @@ export default function Welcome({navigation}) {
         style={specificStyle.welcome}
       >
       <Image
-        source={require('../assets/Logo-White.png')}
+        source={require('../assets/Hourglass.png')}
         style={specificStyle.logo}
       />
       <Text style={specificStyle.title}>
-        Seja {'\n'} bem-vindo(a)
+        Seja bem-vindo(a) ao Hourglass
       </Text>
       
       <TouchableOpacity
@@ -51,19 +51,23 @@ export default function Welcome({navigation}) {
           </View>  
         </TouchableOpacity>
 
-      <Button
-        icon = {
-          <Icon
-            name="arrow-right"
-            size={15}
-            color="#4960F9"
-          />
-        }
-        title="Cadastre-se"
-        titleStyle = {specificStyle.buttonText}
-        buttonStyle = {specificStyle.buttonSingUp}
-        onPress={() => singUp()}
-      />
+      
+      
+      <TouchableOpacity
+            style={specificStyle.buttonSingIn2} 
+            activeOpacity={0.5}
+            onPress={() => singUp()} >
+            <Text style={specificStyle.buttonTextStyle2}> 
+              Sair 
+            </Text> 
+            <View>
+            <ImageBackground 
+              source={require('../assets/Arrow.png')} 
+              style={specificStyle.buttonImageIconStyle2} 
+            /> 
+            </View>  
+      </TouchableOpacity>
+
       </ImageBackground>
     </View>
   );
@@ -86,7 +90,7 @@ const specificStyle = StyleSheet.create({
   buttonSingUp: {
     left: 40,
     width: "80%",
-    marginTop: 40,
+    marginTop: 15,
     borderRadius: 16,
     backgroundColor: '#FFF',
     borderWidth: '1.5',
@@ -106,7 +110,7 @@ const specificStyle = StyleSheet.create({
     height: 45,
     left: 40,  
     width: "80%",
-    marginTop: 300, 
+    marginTop: 280, 
     borderRadius: 16, 
   },
 
@@ -138,6 +142,7 @@ const specificStyle = StyleSheet.create({
     },
     shadowOpacity: 0.58,
     shadowRadius: 4.65,
+    marginTop: 25
   },
 
   logo:{
@@ -148,6 +153,34 @@ const specificStyle = StyleSheet.create({
   welcome:{
     width: "100%", 
     height: "100%",
-  }
+  },
+
+  buttonSingIn2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    backgroundColor: '#fff',
+    height: 45,
+    left: 40,  
+    width: "80%",
+    marginTop: 10, 
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor:  '#2743FB'
+  },
+
+  buttonTextStyle2: {
+    color: '#2743FB', 
+    marginLeft: 15,
+    fontSize: 18,
+  
+  },
+
+  buttonImageIconStyle2: {
+    right: 10,
+    height: 20,
+    width: 25,
+    resizeMode: 'contain',
+  },
 
 })

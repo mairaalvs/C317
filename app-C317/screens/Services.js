@@ -49,7 +49,8 @@ export default function Services({navigation}) {
               <Text style={specificStyle.buttonName}> 
                 Ana Luiza 
               </Text>
-              <Text style={specificStyle.buttonMessage}> 
+              <Text style={specificStyle.buttonMessage}
+                    /*onChangeText = {value => setEmail(value)}                    NÂO ESQUECER*/> 
                 Faxineiro(a) R$20
               </Text>
             </View>

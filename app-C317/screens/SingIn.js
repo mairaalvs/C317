@@ -25,7 +25,7 @@ export default function SingIn({navigation}) {
             style={specificStyle.signIn}
           >
           <Image
-            source={require('../assets/Logo-White.png')}
+            source={require('../assets/Hourglass.png')}
             style={specificStyle.logo}
           />
           <Text style={specificStyle.title}>
