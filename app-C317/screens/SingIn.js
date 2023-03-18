@@ -31,7 +31,7 @@ export default function SingIn({navigation}) {
       </ImageBackground>
 
       <Text style={SingInStyle.subtitle}>
-          Entrar
+          Entrar:
       </Text>
 
       <View style={SingInStyle.inputView}>
