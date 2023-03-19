@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import SingInStyle from '../styles/SingInStyle';
+import SignInStyle from '../styles/SignInStyle';
 
 
 export default function SingIn({navigation}) {
@@ -15,26 +15,26 @@ export default function SingIn({navigation}) {
   }
 
   return (
-    <View style={[SingInStyle.specificContainer]}>
+    <View style={[SignInStyle.specificContainer]}>
       <ImageBackground
         source={require('../assets/SignInUp.png')}
-        style={SingInStyle.signIn}
+        style={SignInStyle.signIn}
       >
         <Image
           source={require('../assets/Hourglass.png')}
-          style={SingInStyle.logo}
+          style={SignInStyle.logo}
         />
 
-        <Text style={SingInStyle.title}>
+        <Text style={SignInStyle.title}>
           Seja bem-vindo(a)!
         </Text>
       </ImageBackground>
 
-      <Text style={SingInStyle.subtitle}>
+      <Text style={SignInStyle.subtitle}>
           Entrar:
       </Text>
 
-      <View style={SingInStyle.inputView}>
+      <View style={SignInStyle.inputView}>
         <Input
           placeholder = "E-mail" 
           rightIcon = {{ type: 'font-awesome', name: 'check'}} 
@@ -50,23 +50,23 @@ export default function SingIn({navigation}) {
         />
       </View>
 
-      <Text style={SingInStyle.password}>
+      <Text style={SignInStyle.password}>
         Esqueceu sua senha?
       </Text>
 
       <TouchableOpacity
-        style={SingInStyle.buttonSingIn} 
+        style={SignInStyle.buttonSingIn} 
         activeOpacity={0.5}
         onPress={() => login()}
       >
-        <Text style={SingInStyle.buttonTextStyle}> 
+        <Text style={SignInStyle.buttonTextStyle}> 
           Entrar 
         </Text>
 
         <View>
           <ImageBackground 
             source={require('../assets/Circles-Arrow.png')} 
-            style={SingInStyle.buttonImageIconStyle} 
+            style={SignInStyle.buttonImageIconStyle} 
           />
         </View>  
       </TouchableOpacity>

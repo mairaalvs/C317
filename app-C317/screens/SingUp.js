@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import SingUnStyle from '../styles/SingUpStyle';
+import SignUpStyle from '../styles/SignUpStyle';
 
 export default function SingUp({navigation}) {
   const [name, setName] = useState(null)
@@ -21,26 +21,26 @@ export default function SingUp({navigation}) {
   }
 
   return (
-    <View style={SingUnStyle.specificContainer}>
+    <View style={SignUpStyle.specificContainer}>
       <ImageBackground
         source={require('../assets/SignInUp.png')}
-        style={SingUnStyle.signIn}
+        style={SignUpStyle.signIn}
       >
         <Image
           source={require('../assets/Hourglass.png')}
-          style={SingUnStyle.logo}
+          style={SignUpStyle.logo}
         />
 
-        <Text style={SingUnStyle.title}>
+        <Text style={SignUpStyle.title}>
           Seja bem-vindo(a)!
         </Text>
       </ImageBackground>
 
-      <Text style={SingUnStyle.subtitle}>
+      <Text style={SignUpStyle.subtitle}>
         Cadastre-se:
       </Text>
 
-      <View style={SingUnStyle.inputView}>
+      <View style={SignUpStyle.inputView}>
         <Input
           placeholder = "Nome completo" 
           rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
@@ -72,18 +72,18 @@ export default function SingUp({navigation}) {
       </View>
 
       <TouchableOpacity
-        style={SingUnStyle.buttonSingIn} 
+        style={SignUpStyle.buttonSingIn} 
         activeOpacity={0.5}
         onPress={() => singUp()}
       >
-        <Text style={SingUnStyle.buttonTextStyle}> 
+        <Text style={SignUpStyle.buttonTextStyle}> 
           Cadastrar 
         </Text>
 
         <View>
           <ImageBackground 
             source={require('../assets/Circles-Arrow.png')} 
-            style={SingUnStyle.buttonImageIconStyle} 
+            style={SignUpStyle.buttonImageIconStyle} 
           /> 
         </View>  
       </TouchableOpacity>
