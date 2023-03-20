@@ -13,6 +13,7 @@ import Chat from './screens/Chat';
 import Profile2 from './screens/Profile2';
 import Studies2 from './screens/Studies2';
 import Redirection from './screens/Redirection';
+import Confirmation from './screens/Confirmation';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ function MyStack() {
       <Stack.Screen name="Profile2" component={Profile2} options={{ headerShown: false }} />
       <Stack.Screen name="Studies2" component={Studies2} options={{ headerShown: false }} />
       <Stack.Screen name="Redirection" component={Redirection} options={{ headerShown: false }} />
+      <Stack.Screen name="Confirmation" component={Confirmation} options={{ headerShown: false }} />
             
     </Stack.Navigator>
 

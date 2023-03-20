@@ -12,13 +12,9 @@ export default function SingUp({navigation}) {
   const [password, setPassword] = useState(null)
   const [cpf, setCpf] = useState(null)
 
-  const singUp = () => {
-      //navigation.reset({
-      //    index: 0,
-      //    routes: [{name: "Principal"}]
-      //})
-      navigation.navigate("Group")
-  }
+  const confirmation = () => {
+    navigation.navigate("Confirmation")
+}
 
   return (
     <View style={SignUpStyle.specificContainer}>
@@ -74,7 +70,7 @@ export default function SingUp({navigation}) {
       <TouchableOpacity
         style={SignUpStyle.buttonSingIn} 
         activeOpacity={0.5}
-        onPress={() => singUp()}
+        onPress={() => confirmation()}
       >
         <Text style={SignUpStyle.buttonTextStyle}> 
           Cadastrar 
