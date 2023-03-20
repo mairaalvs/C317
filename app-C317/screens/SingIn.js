@@ -13,6 +13,9 @@ export default function SingIn({navigation}) {
   const login = async() => {
     navigation.navigate("Group")
   }
+  const recoverPassword = async() => {
+    navigation.navigate("Redirection")
+  }
 
   return (
     <View style={[SignInStyle.specificContainer]}>
@@ -50,7 +53,10 @@ export default function SingIn({navigation}) {
         />
       </View>
 
-      <Text style={SignInStyle.password}>
+      <Text 
+        style={SignInStyle.password}
+        onPress={() => recoverPassword()}
+      >
         Esqueceu sua senha?
       </Text>
 
