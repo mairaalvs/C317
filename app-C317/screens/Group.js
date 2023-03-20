@@ -9,7 +9,6 @@ import Services from './Services';
 import Studies from './Studies';
 import Profile from './Profile';
 
-
 const Tab = createBottomTabNavigator();
 
 export default function Group() {
@@ -26,30 +25,33 @@ export default function Group() {
         options={{
           tabBarLabel: 'Mensagens',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="message-reply" color={color} size={size} />
+            <MaterialCommunityIcons name="message-reply" color={color} size={size}/>
           ),
         }}
       />
+
       <Tab.Screen
         name="Servico"
         component={Services}
         options={{
           tabBarLabel: 'Serviço',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="magnify" color={color} size={size} />
+            <MaterialCommunityIcons name="magnify" color={color} size={size}/>
           ),
         }}
       />
+
       <Tab.Screen
         name="Educacao"
         component={Studies}
         options={{
           tabBarLabel: 'Educação',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="book" color={color} size={size} />
+            <MaterialCommunityIcons name="book" color={color} size={size}/>
           ),
         }}
       />
+
       <Tab.Screen
         name="Perfil"
         component={Profile}

@@ -1,158 +1,110 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import StudiesStyle2 from '../styles/StudiesStyle2';
 
 export default function Studies2({navigation}) {
+    const [text, setText] = useState("");
 
-  const [text, setText] = useState("");
+    const profile = () => {
+        navigation.navigate("Profile2")
+    }
 
-  const profile = () => {
-    navigation.navigate("Profile2")
-  }
+    return (
+        <ScrollView>
+            <View style = {StudiesStyle2.view}>
+                <TouchableOpacity
+                    style={StudiesStyle2.button} 
+                    activeOpacity={0.5}
+                >
+                    <View style={StudiesStyle2.viewImage}>
+                        <Image
+                            source={require('../assets/stu1.jpg')}
+                            style={StudiesStyle2.imageProfile}
+                        />
+                        <View style={StudiesStyle2.viewArrow}>
+                            <View style={StudiesStyle2.viewText}>
+                                <Text style={StudiesStyle2.buttonName}> 
+                                    Livro: Minha vida passada a limpo 
+                                </Text>
 
-  return (
-    <ScrollView>
-        <View style = {specificStyle.view}>
-            <TouchableOpacity
-                style={specificStyle.button} 
-                activeOpacity={0.5}>
-            
-            <View style={specificStyle.viewImage}>
-                <Image
-                source={require('../assets/stu1.jpg')}
-                style={specificStyle.imageProfile}
-                />
-                <View style={specificStyle.viewArrow}>
-                    <View style={specificStyle.viewText}>
-                        <Text style={specificStyle.buttonName}> 
-                            Livro: Minha vida passada a limpo 
-                        </Text>
-                        <Text style={specificStyle.buttonMessage}> 
-                            Autora: Verônica Oliveira
-                        </Text>
+                                <Text style={StudiesStyle2.buttonMessage}> 
+                                    Autora: Verônica Oliveira
+                                </Text>
+                            </View>
+                        </View>
                     </View>
-                </View>
-            </View>
-            </TouchableOpacity>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-                style={specificStyle.button} 
-                activeOpacity={0.5}>
-            
-            <View style={specificStyle.viewImage}>
-                <Image
-                source={require('../assets/stu2.png')}
-                style={specificStyle.imageProfile}
-                />
-                <View style={specificStyle.viewArrow}>
-                    <View style={specificStyle.viewText}>
-                        <Text style={specificStyle.buttonName}> 
-                            Matéria: 5 passos para precificar corretamente um produto 
-                        </Text>
-                        <Text style={specificStyle.buttonMessage}> 
-                            Site: Sebrae
-                        </Text>
-                    </View>
-                </View>
-            </View>
-            </TouchableOpacity>
+                <TouchableOpacity
+                    style={StudiesStyle2.button} 
+                    activeOpacity={0.5}
+                >
+                    <View style={StudiesStyle2.viewImage}>
+                        <Image
+                            source={require('../assets/stu2.png')}
+                            style={StudiesStyle2.imageProfile}
+                        />
+                        <View style={StudiesStyle2.viewArrow}>
+                            <View style={StudiesStyle2.viewText}>
+                                <Text style={StudiesStyle2.buttonName}> 
+                                    Matéria: 5 passos para precificar corretamente um produto 
+                                </Text>
 
-            <TouchableOpacity
-                style={specificStyle.button} 
-                activeOpacity={0.5}>
-            
-            <View style={specificStyle.viewImage}>
-                <Image
-                source={require('../assets/stu3.png')}
-                style={specificStyle.imageProfile}
-                />
-                <View style={specificStyle.viewArrow}>
-                    <View style={specificStyle.viewText}>
-                        <Text style={specificStyle.buttonName}> 
-                            Matéria: Uberização do trabalho - O que é e quais suas consequências? 
-                        </Text>
-                        <Text style={specificStyle.buttonMessage}> 
-                            Site: Coonecta
-                        </Text>
+                                <Text style={StudiesStyle2.buttonMessage}> 
+                                    Site: Sebrae
+                                </Text>
+                            </View>
+                        </View>
                     </View>
-                </View>
-            </View>
-            </TouchableOpacity>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-                style={specificStyle.button} 
-                activeOpacity={0.5}>
-            
-            <View style={specificStyle.viewImage}>
-                <Image
-                source={require('../assets/stu4.png')}
-                style={specificStyle.imageProfile}
-                />
-                <View style={specificStyle.viewArrow}>
-                    <View style={specificStyle.viewText}>
-                        <Text style={specificStyle.buttonName}> 
-                            Matéria: INSS de autônomo - Entenda a importância da contribuição 
-                        </Text>
-                        <Text style={specificStyle.buttonMessage}> 
-                            Site: ContaRapido
-                        </Text>
+                <TouchableOpacity
+                    style={StudiesStyle2.button} 
+                    activeOpacity={0.5}
+                >
+                    <View style={StudiesStyle2.viewImage}>
+                        <Image
+                            source={require('../assets/stu3.png')}
+                            style={StudiesStyle2.imageProfile}
+                        />
+                        <View style={StudiesStyle2.viewArrow}>
+                            <View style={StudiesStyle2.viewText}>
+                                <Text style={StudiesStyle2.buttonName}> 
+                                    Matéria: Uberização do trabalho - O que é e quais suas consequências? 
+                                </Text>
+
+                                <Text style={StudiesStyle2.buttonMessage}> 
+                                    Site: Coonecta
+                                </Text>
+                            </View>
+                        </View>
                     </View>
-                </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={StudiesStyle2.button} 
+                    activeOpacity={0.5}
+                >
+                    <View style={StudiesStyle2.viewImage}>
+                        <Image
+                            source={require('../assets/stu4.png')}
+                            style={StudiesStyle2.imageProfile}
+                        />
+                        <View style={StudiesStyle2.viewArrow}>
+                            <View style={StudiesStyle2.viewText}>
+                                <Text style={StudiesStyle2.buttonName}> 
+                                    Matéria: INSS de autônomo - Entenda a importância da contribuição 
+                                </Text>
+
+                                <Text style={StudiesStyle2.buttonMessage}> 
+                                    Site: ContaRapido
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableOpacity>
             </View>
-            </TouchableOpacity>
-        </View>
-    </ScrollView>
+        </ScrollView>
     );
 }
-
-const specificStyle = StyleSheet.create({
-view:{
-    marginTop: 15,
-    width: "95%",
-    left: 10,
-},
-
-imageProfile:{
-    marginTop: 20,
-    height: 100,
-    width: 100,
-    resizeMode: 'contain',
-    borderRadius: 50,
-    borderWidth: 1,
-},
-
-button: {
-    marginVertical: 5,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingBottom: 10,
-},
-
-viewImage: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 3,
-},
-
-viewArrow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-},
-
-viewText: {
-    left: 20,
-},
-
-buttonName: {
-    fontSize: 18,
-    fontWeight:'bold',
-    width: 170,
-},
-
-buttonMessage: {
-    marginTop: 10,
-    fontSize: 18,
-    color: '#2743FD'
-},
-
-});
-  

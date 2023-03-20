@@ -13,10 +13,10 @@ export default function Services({navigation}) {
 
   return (
     <ScrollView>
-      <SafeAreaView style = {specificStyle.view}>
-        <View style = {specificStyle.header}>
+      <SafeAreaView style = {ServicesStyle.view}>
+        <View style = {ServicesStyle.header}>
           <TextInput 
-            style = {specificStyle.input} 
+            style = {ServicesStyle.input} 
             placeholder='Buscar' 
             value={text} 
             onChangeText={(value) => 
@@ -31,196 +31,196 @@ export default function Services({navigation}) {
           </TextInput>
         </View>
 
-        <Text style={specificStyle.textSubTitle}>
+        <Text style={ServicesStyle.textSubTitle}>
           Qual serviço você {'\n'} está procurando?
         </Text>
 
         <TouchableOpacity
-          style={specificStyle.button} 
+          style={ServicesStyle.button} 
           activeOpacity={0.5}
           onPress={() => profile()}
         >
-          <View style={specificStyle.viewImage}>
+          <View style={ServicesStyle.viewImage}>
             <Image
-              style={specificStyle.avatar}
+              style={ServicesStyle.avatar}
               resizeMode='contain'
               source={{uri: 'https://placeimg.com/140/140/any'}}
             />
 
-            <View style={specificStyle.viewArrow}>
-              <View style={specificStyle.viewText}>
-                <Text style={specificStyle.buttonName}> 
+            <View style={ServicesStyle.viewArrow}>
+              <View style={ServicesStyle.viewText}>
+                <Text style={ServicesStyle.buttonName}> 
                   Ana Luiza 
                 </Text>
 
-                <Text style={specificStyle.buttonMessage}
+                <Text style={ServicesStyle.buttonMessage}
                       /*onChangeText = {value => setEmail(value)}                    NÂO ESQUECER*/> 
                   Desenvolvedora(a) R$150
                 </Text>
               </View>
-              <Icon name="chevron-right" style={specificStyle.viewArrowRight}/>
+              <Icon name="chevron-right" style={ServicesStyle.viewArrowRight}/>
             </View>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={specificStyle.button} 
+          style={ServicesStyle.button} 
           activeOpacity={0.5}
           onPress={() => profile()}
         >
-          <View style={specificStyle.viewImage}>
+          <View style={ServicesStyle.viewImage}>
             <Image
-              style={specificStyle.avatar}
+              style={ServicesStyle.avatar}
               resizeMode='contain'
               source={{uri: 'https://placeimg.com/140/140/any'}}
             />
 
-            <View style={specificStyle.viewArrow}>
-              <View style={specificStyle.viewText}>
-                <Text style={specificStyle.buttonName}> 
+            <View style={ServicesStyle.viewArrow}>
+              <View style={ServicesStyle.viewText}>
+                <Text style={ServicesStyle.buttonName}> 
                   João Paulo 
                 </Text>
 
-                <Text style={specificStyle.buttonMessage}> 
+                <Text style={ServicesStyle.buttonMessage}> 
                   Pedreiro(a) R$35 
                 </Text>
               </View>
-              <Icon name="chevron-right" style={specificStyle.viewArrowRight}/>
+              <Icon name="chevron-right" style={ServicesStyle.viewArrowRight}/>
             </View>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={specificStyle.button} 
+          style={ServicesStyle.button} 
           activeOpacity={0.5}
           onPress={() => profile()}
         >
-          <View style={specificStyle.viewImage}>
+          <View style={ServicesStyle.viewImage}>
             <Image
-              style={specificStyle.avatar}
+              style={ServicesStyle.avatar}
               resizeMode='contain'
               source={{uri: 'https://placeimg.com/140/140/any'}}
             />
 
-            <View style={specificStyle.viewArrow}>
-              <View style={specificStyle.viewText}>
-                <Text style={specificStyle.buttonName}> 
+            <View style={ServicesStyle.viewArrow}>
+              <View style={ServicesStyle.viewText}>
+                <Text style={ServicesStyle.buttonName}> 
                   André 
                 </Text>
 
-                <Text style={specificStyle.buttonMessage}> 
+                <Text style={ServicesStyle.buttonMessage}> 
                   Carpinteiro(a) R$35 
                 </Text>
               </View>
-              <Icon name="chevron-right" style={specificStyle.viewArrowRight}/>
+              <Icon name="chevron-right" style={ServicesStyle.viewArrowRight}/>
             </View>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={specificStyle.button} 
+          style={ServicesStyle.button} 
           activeOpacity={0.5}
           onPress={() => profile()}
         >
-          <View style={specificStyle.viewImage}>
+          <View style={ServicesStyle.viewImage}>
             <Image
-              style={specificStyle.avatar}
+              style={ServicesStyle.avatar}
               resizeMode='contain'
               source={{uri: 'https://placeimg.com/140/140/any'}}
             />
 
-            <View style={specificStyle.viewArrow}>
-              <View style={specificStyle.viewText}>
-                <Text style={specificStyle.buttonName}> 
+            <View style={ServicesStyle.viewArrow}>
+              <View style={ServicesStyle.viewText}>
+                <Text style={ServicesStyle.buttonName}> 
                   Pedro 
                 </Text>
 
-                <Text style={specificStyle.buttonMessage}> 
+                <Text style={ServicesStyle.buttonMessage}> 
                   Professor(a) R$35 
                 </Text>
               </View>
-              <Icon name="chevron-right" style={specificStyle.viewArrowRight} />
+              <Icon name="chevron-right" style={ServicesStyle.viewArrowRight} />
             </View>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={specificStyle.button} 
+          style={ServicesStyle.button} 
           activeOpacity={0.5}
           onPress={() => profile()}
         >
-          <View style={specificStyle.viewImage}>
+          <View style={ServicesStyle.viewImage}>
             <Image
-              style={specificStyle.avatar}
+              style={ServicesStyle.avatar}
               resizeMode='contain'
               source={{uri: 'https://placeimg.com/140/140/any'}}
             />
 
-            <View style={specificStyle.viewArrow}>
-              <View style={specificStyle.viewText}>
-                <Text style={specificStyle.buttonName}> 
+            <View style={ServicesStyle.viewArrow}>
+              <View style={ServicesStyle.viewText}>
+                <Text style={ServicesStyle.buttonName}> 
                   Luciana 
                 </Text>
 
-                <Text style={specificStyle.buttonMessage}> 
+                <Text style={ServicesStyle.buttonMessage}> 
                   Professor(a) R$35 
                 </Text>
               </View>
-              <Icon name="chevron-right" style={specificStyle.viewArrowRight} />
+              <Icon name="chevron-right" style={ServicesStyle.viewArrowRight} />
             </View>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={specificStyle.button} 
+          style={ServicesStyle.button} 
           activeOpacity={0.5}
           onPress={() => profile()}
         >
-          <View style={specificStyle.viewImage}>
+          <View style={ServicesStyle.viewImage}>
             <Image
-              style={specificStyle.avatar}
+              style={ServicesStyle.avatar}
               resizeMode='contain'
               source={{uri: 'https://placeimg.com/140/140/any'}}
             />
 
-            <View style={specificStyle.viewArrow}>
-              <View style={specificStyle.viewText}>
-                <Text style={specificStyle.buttonName}> 
+            <View style={ServicesStyle.viewArrow}>
+              <View style={ServicesStyle.viewText}>
+                <Text style={ServicesStyle.buttonName}> 
                   Júlia 
                 </Text>
 
-                <Text style={specificStyle.buttonMessage}> 
+                <Text style={ServicesStyle.buttonMessage}> 
                   Desenvolvedor(a) R$75 
                 </Text>
               </View>
-              <Icon name="chevron-right" style={specificStyle.viewArrowRight} />
+              <Icon name="chevron-right" style={ServicesStyle.viewArrowRight} />
             </View>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={specificStyle.button} 
+          style={ServicesStyle.button} 
           activeOpacity={0.5}
           onPress={() => profile()}
         >
-          <View style={specificStyle.viewImage}>
+          <View style={ServicesStyle.viewImage}>
             <Image
-              style={specificStyle.avatar}
+              style={ServicesStyle.avatar}
               resizeMode='contain'
               source={{uri: 'https://placeimg.com/140/140/any'}}
             />
 
-            <View style={specificStyle.viewArrow}>
-              <View style={specificStyle.viewText}>
-                <Text style={specificStyle.buttonName}> 
+            <View style={ServicesStyle.viewArrow}>
+              <View style={ServicesStyle.viewText}>
+                <Text style={ServicesStyle.buttonName}> 
                   Fernando 
                 </Text>
 
-                <Text style={specificStyle.buttonMessage}> 
+                <Text style={ServicesStyle.buttonMessage}> 
                   Pintor(a) R$15 
                 </Text>
               </View>
-              <Icon name="chevron-right" style={specificStyle.viewArrowRight} />
+              <Icon name="chevron-right" style={ServicesStyle.viewArrowRight} />
             </View>
           </View>
         </TouchableOpacity> 
