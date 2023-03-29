@@ -43,8 +43,23 @@ inputView:{
     marginTop: 280,
 },
 
-input:{
-    color: "#fff",
+area: {
+    flexDirection: 'row',
+    width: '90%',
+    height: 40,
+    alignItems: 'center'
+
+},
+
+inputPassword: {
+    flexDirection: 'row',
+    width: '100%',
+    height: 40,
+    alignItems: 'center',
+    left: 12,
+    fontSize: 19,
+    borderBottomWidth: 0.8,
+    borderBottomColor: "#808080",
 },
 
 buttonSingIn: {

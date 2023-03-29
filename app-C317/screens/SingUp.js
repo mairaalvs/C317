@@ -1,9 +1,10 @@
 
 
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { FontAwesome5 } from '@expo/vector-icons';
 import SignUpStyle from '../styles/SignUpStyle';
 
 export default function SingUp({navigation}) {
@@ -50,12 +51,21 @@ export default function SingUp({navigation}) {
           keyboardType="email-address"
         />
 
-        <Input
-          placeholder = "Senha" 
-          rightIcon = {{ type: 'font-awesome', name: 'eye' }} 
-          onChangeText = {value => setPassword(value)} 
-          secureTextEntry={ true }
-        />
+        <View style={SignUpStyle.area}>
+          <TextInput
+            style={SignUpStyle.inputPassword}
+            placeholder="Senha"
+            secureTextEntry = {password}
+          />
+
+          <TouchableOpacity onPress={() => setPassword(!password)}>
+            {password == true ?
+              <FontAwesome5 name="eye-slash" size={24} color="black" />
+              :
+              <FontAwesome5 name="eye" size={24} color="black" />
+            }
+          </TouchableOpacity>
+        </View>
 
         <Input
           placeholder = "CPF" 
