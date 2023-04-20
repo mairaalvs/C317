@@ -40,15 +40,15 @@ subtitle:{
 },
 
 inputView:{
-    marginTop: 280,
+    marginTop: 290,
 },
 
 area: {
     flexDirection: 'row',
     width: '90%',
     height: 40,
-    alignItems: 'center'
-
+    alignItems: 'center',
+    //marginTop: 20
 },
 
 inputPassword: {
@@ -56,9 +56,9 @@ inputPassword: {
     width: '100%',
     height: 40,
     alignItems: 'center',
-    left: 12,
+    //left: 12,
     fontSize: 19,
-    borderBottomWidth: 0.8,
+    //borderBottomWidth: 0.8,
     borderBottomColor: "#808080",
 },
 
@@ -70,7 +70,7 @@ buttonSingIn: {
     height: 45,
     left: 40,  
     width: "80%",
-    marginTop: 0, 
+    marginTop: 20, 
     borderRadius: 16, 
 },
 
@@ -88,4 +88,29 @@ buttonImageIconStyle: {
     width: 60,
     resizeMode: 'contain',
 },
+
+messageErrorEmail:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: -20
+},
+
+messageErrorPassword:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: -8
+},
+
+messageErrorCpf:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: -20
+},
+
+inputEmail:{
+    marginTop: -10
+}
 });

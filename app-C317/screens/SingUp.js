@@ -6,13 +6,13 @@ import { Button, Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FontAwesome5 } from '@expo/vector-icons';
 import SignUpStyle from '../styles/SignUpStyle';
-import { validEmail, validPassword } from "../utils/regex";
+import { validEmail, validPassword, validCpf } from "../utils/regex";
 
 export default function SingUp({navigation}) {
   const [name, setName] = useState(null)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [cpf, setCpf] = useState(null)
+  const [cpf, setCpf] = useState("")
 
   const [inputEmailErr, setInputEmailErr] = useState(false);
   const [inputPassordErr, setInputPasswordErr] = useState(false);
@@ -34,11 +34,10 @@ export default function SingUp({navigation}) {
     } else {
       setInputCpfErr(false);
       }  
+    if((validEmail.test(email)) && (validPassword.test(password)) && (validCpf.test(cpf))){
+      navigation.navigate("Confirmation")
+    }
   };
-
-  const confirmation = () => {
-    navigation.navigate("Confirmation")
-}
 
   return (
     <View style={SignUpStyle.specificContainer}>
@@ -61,58 +60,54 @@ export default function SingUp({navigation}) {
       </Text>
 
       <View style={SignUpStyle.inputView}>
-        <Input
+        <Input 
           placeholder = "Nome completo" 
-          rightIcon = {{ type: 'font-awesome', name: 'eye' }}
           value = {name} 
           onChangeText = {value => setName(value)} 
         />
 
-        <Input
+        <Input style={SignUpStyle.inputEmail}
           placeholder = "E-mail" 
-          rightIcon = {{ type: 'font-awesome', name: 'check' }}
           value = {email}  
           onChangeText = {value => setEmail(value)} 
           keyboardType="email-address"
         />
-        {inputEmailErr && <Text>Por favor digete um email valido!</Text>}
+        {inputEmailErr && <Text style={SignUpStyle.messageErrorEmail}>Por favor digete um email valido!</Text>}
 
         <View style={SignUpStyle.area}>
-          <TextInput
+          <Input
             style={SignUpStyle.inputPassword}
             placeholder="Senha"
             secureTextEntry = {password}
             value = {password}  
             onChangeText = {value => setPassword(value)} 
           />
-          {inputPassordErr && <Text>Por favor digite uma senha mais segura!</Text>}
 
           <TouchableOpacity onPress={() => setPassword(!password)}>
             {password == true ?
               <FontAwesome5 name="eye-slash" size={24} color="black" />
               :
               <FontAwesome5 name="eye" size={24} color="black" />
-            }
+            } 
           </TouchableOpacity>
         </View>
+        {inputPassordErr && <Text style={SignUpStyle.messageErrorPassword}>Por favor digite uma senha mais segura!</Text>}
 
         <Input
-          placeholder = "CPF" 
-          rightIcon = {{ type: 'font-awesome', name: 'check' }}
+          placeholder = "CPF"
           value = {cpf}   
           onChangeText = {value => setCpf(value)} 
-          secureTextEntry={ true }
-          /* Poderia ter usado o keyboardType="number-pad" e dessa forma somente numeros seriam aceitos*/
+          secureTextEntry={ false }
           returnKeyType="done"
         />
-        {inputCpfErr && <Text>Por favor digete um cpf valido!</Text>}
+        {inputCpfErr && <Text style={SignUpStyle.messageErrorCpf}>Por favor digete um cpf valido!</Text>}
       </View>
 
       <TouchableOpacity
         style={SignUpStyle.buttonSingIn} 
         activeOpacity={0.5}
         onClick={validate}
-        /*onPress={() => confirmation()}*/ /* verificar qual seria o + correto colocar e como incluir a lógica*/
+        onPress={() => validate()} 
         
       >
         <Text style={SignUpStyle.buttonTextStyle}> 
