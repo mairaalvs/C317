@@ -96,4 +96,18 @@ buttonImageIconStyle: {
     width: 60,
     resizeMode: 'contain',
 },
+
+messageErrorEmail:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: -20
+},
+
+messageErrorPassword:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: 7
+},
 });
