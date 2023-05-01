@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { Button, Input, TextInput } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import ProfileStyle2 from '../styles/ProfileStyle2';
+import ProfileServiceStyle from '../styles/ProfileServiceStyle';
 
 export default function Profile({navigation}) {
   const [name, setName] = useState(null)
@@ -11,26 +11,22 @@ export default function Profile({navigation}) {
   const [job, setJob] = useState(null)
 
   const singOut = () => {
-    //navigation.reset({
-    //    index: 0,
-    //    routes: [{name: "Principal"}]
-    //})
     navigation.navigate("Chat")
   }
 
   return (
-    <View style={ ProfileStyle2.specificContainer}>
+    <View style={ ProfileServiceStyle.specificContainer}>
       <ImageBackground
         source={require('../assets/Profile.png')}
-        style={ProfileStyle2.profile}
+        style={ProfileServiceStyle.profile}
       >
         <Image
         source={require('../assets/ImageProfile.jpg')}
-        style={ProfileStyle2.imageProfile}
+        style={ProfileServiceStyle.imageProfile}
         />
 
-        <View style={ProfileStyle2.inputView}>
-          <Text style={ProfileStyle2.textInputView}>
+        <View style={ProfileServiceStyle.inputView}>
+          <Text style={ProfileServiceStyle.textInputView}>
             Nome
           </Text>
 
@@ -39,7 +35,7 @@ export default function Profile({navigation}) {
             color = "#2743FD" 
           />
 
-          <Text style={ProfileStyle2.textInputView}>
+          <Text style={ProfileServiceStyle.textInputView}>
             Profissão
           </Text>
 
@@ -48,43 +44,43 @@ export default function Profile({navigation}) {
             color = "#2743FD" 
           />
 
-          <Text style={ProfileStyle2.textInputView}>
-            Valor do serviço
-          </Text>
+          <Text style={ProfileServiceStyle.textInputView}>
+            Endereço {/*Acho que o endereço não deveria aparecer pra pessoa que esta analisando o perfil do profissional*/}
+          </Text> 
 
           <Input
             onChangeText = {value => setService(value)}
             color = "#2743FD"
           />
 
-          <Text style={ProfileStyle2.textInputView}>
+          <Text style={ProfileServiceStyle.textInputView}>
             Serviços oferecidos
           </Text>
 
-          <View style={ProfileStyle2.viewService}>
+          <View style={ProfileServiceStyle.viewService}>
             <TouchableOpacity
-              style={ProfileStyle2.buttonService}
+              style={ProfileServiceStyle.buttonService}
               activeOpacity={0.5}
             >
-              <Text style={ProfileStyle2.buttonServiceStyle}> 
+              <Text style={ProfileServiceStyle.buttonServiceStyle}> 
                 CSS 
               </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={ProfileStyle2.buttonService}
+              style={ProfileServiceStyle.buttonService}
               activeOpacity={0.5}
             >
-              <Text style={ProfileStyle2.buttonServiceStyle}> 
+              <Text style={ProfileServiceStyle.buttonServiceStyle}> 
                 Java 
               </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={ProfileStyle2.buttonService}
+              style={ProfileServiceStyle.buttonService}
               activeOpacity={0.5}
             >
-              <Text style={ProfileStyle2.buttonServiceStyle}> 
+              <Text style={ProfileServiceStyle.buttonServiceStyle}> 
                 HTML 
               </Text>
             </TouchableOpacity>
@@ -92,16 +88,16 @@ export default function Profile({navigation}) {
         </View>
 
         <TouchableOpacity
-          style={ProfileStyle2.buttonSingIn} 
+          style={ProfileServiceStyle.buttonSingIn} 
           activeOpacity={0.5}
           onPress={() => singOut()} >
-            <Text style={ProfileStyle2.buttonTextStyle}> 
+            <Text style={ProfileServiceStyle.buttonTextStyle}> 
               Vamos Conversar 
             </Text> 
             <View>
               <ImageBackground 
                 source={require('../assets/Conversation.png')} 
-                style={ProfileStyle2.buttonImageIconStyle} 
+                style={ProfileServiceStyle.buttonImageIconStyle} 
               /> 
             </View>  
         </TouchableOpacity>

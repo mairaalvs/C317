@@ -11,11 +11,11 @@ export default function Profile({navigation}) {
   const [job, setJob] = useState(null)
 
   const singOut = () => {
-    //navigation.reset({
-    //    index: 0,
-    //    routes: [{name: "Principal"}]
-    //})
     navigation.navigate("Welcome")
+  }
+
+  const settings = () => {
+    navigation.navigate("ProfileSettings")
   }
 
   return (
@@ -24,11 +24,24 @@ export default function Profile({navigation}) {
         source={require('../assets/Profile.png')}
         style={ProfileStyle.profile}
       >
-        <Image
-          source={require('../assets/ImageProfile.jpg')}
-          style={ProfileStyle.imageProfile}
-        />
+        <View style={ProfileStyle.settingsImage}>
+          <Image
+            source={require('../assets/ImageProfile.jpg')}
+            style={ProfileStyle.imageProfile}
+          />
 
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => settings()}>
+            <View>
+              <ImageBackground 
+                source={require('../assets/gear.png')} 
+                style={ProfileStyle.settings} 
+              /> 
+            </View>  
+          </TouchableOpacity>
+        </View>
+        
         <View style={ProfileStyle.inputView}>
           <Text style={ProfileStyle.textInputView}>
             Nome
@@ -49,7 +62,7 @@ export default function Profile({navigation}) {
           />
 
           <Text style={ProfileStyle.textInputView}>
-            Valor do serviço
+            Endereço
           </Text>
 
           <Input
@@ -57,38 +70,6 @@ export default function Profile({navigation}) {
             color = "#2743FD"
           />
 
-          <Text style={ProfileStyle.textInputView}>
-            Serviços oferecidos
-          </Text>
-
-          <View style={ProfileStyle.viewService}>
-            <TouchableOpacity
-              style={ProfileStyle.buttonService}
-              activeOpacity={0.5}
-            >
-              <Text style={ProfileStyle.buttonServiceStyle}> 
-                CSS 
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={ProfileStyle.buttonService}
-              activeOpacity={0.5}
-            >
-              <Text style={ProfileStyle.buttonServiceStyle}> 
-                Java 
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={ProfileStyle.buttonService}
-              activeOpacity={0.5}
-            >
-              <Text style={ProfileStyle.buttonServiceStyle}> 
-                HTML 
-              </Text>
-            </TouchableOpacity>
-          </View>
         </View>
 
         <TouchableOpacity

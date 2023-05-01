@@ -18,8 +18,8 @@ settingsImage:{
 },
 
 imageProfile:{
-    right: 145,
-    marginTop: 10,
+    right: 160,
+    marginTop: 15,
     height: 150,
     width: 150,
     resizeMode: 'contain',
@@ -35,21 +35,51 @@ imageProfile:{
 },
 
 settings:{
-    marginTop: 125,
-    right: 110,
+    marginTop: 50,
+    right: 150,
     height: 30,
     width: 30,
     resizeMode: 'contain',
 },
 
 inputView:{
-    marginTop:30,
+    marginTop:5,
     left: -130,
 },
 
 textInputView:{
     left: 10,
     fontSize: 17,
+},
+
+switch:{
+    marginTop:20,
+},
+
+viewService:{
+    flexDirection: 'row', 
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+},
+
+buttonService:{
+    flexDirection: 'row', 
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    height: 35,
+    left: 10,  
+    //width: "80%",
+    marginTop: 7, 
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor:  '#2743FB'
+},
+  
+buttonServiceStyle:{
+    color: '#2743FB', 
+    marginLeft: 20,
+    marginRight: 20,
+    fontSize: 10,
 },
 
 buttonSingIn: {
@@ -60,7 +90,7 @@ buttonSingIn: {
     height: 45,
     left: -70,  
     //width: "80%",
-    marginTop: 30, 
+    marginTop: 10, 
     borderRadius: 16,
     borderWidth: 2,
     borderColor:  '#2743FB'

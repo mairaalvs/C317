@@ -8,7 +8,7 @@ export default function Services({navigation}) {
   const [text, setText] = useState("");
 
   const profile = () => {
-    navigation.navigate("Profile2")
+    navigation.navigate("ProfileService")
   }
 
   return (
