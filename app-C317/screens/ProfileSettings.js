@@ -9,6 +9,7 @@ export default function Profile({navigation}) {
   const [service, setService] = useState(null)
   const [job, setJob] = useState(null)
   const [ligado, setLigado] = useState(true)
+  const [switchColor, setSwitchColor] = useState("")
 
   const singOut = () => {
     navigation.navigate("Welcome")
@@ -61,22 +62,25 @@ export default function Profile({navigation}) {
               onChangeText = {value => setService(value)}
               color = "#2743FD"
             />
-
           </View>
 
-          <View>
-            <Text style={ProfileSettingsStyle.textInputView}>
-              Oferecer Serviço:
-            </Text>
+          <View style={ProfileSettingsStyle.services}>
+            <View style={ProfileSettingsStyle.switch}>
+              <Text style={ProfileSettingsStyle.textInputView}>
+                Oferecer Serviço:
+              </Text>
 
-            <Switch
-              style={ProfileSettingsStyle.switch}
-              trackColor={{false:"#777", true:"#8bf"}}
-              thumbColor={ligado ? "#00f" : "#444"}
-              value={ligado}
-              onValueChange={toggleLigado}
-            />
-
+              <Switch
+                style={ProfileSettingsStyle.switchText}
+                trackColor={{false:"#777", true:"#8bf"}}
+                thumbColor={ligado ? "#00f" : "#444"}
+                value={ligado}
+                onValueChange={toggleLigado}
+              >
+ 
+              </Switch>
+            </View>
+            
             <Text style={ProfileSettingsStyle.textInputView}>
               Serviço oferecido:
             </Text>

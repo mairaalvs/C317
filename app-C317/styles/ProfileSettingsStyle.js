@@ -43,17 +43,27 @@ settings:{
 },
 
 inputView:{
-    marginTop:5,
+    marginTop:10,
     left: -130,
+},
+
+services:{
+    right: 130,
 },
 
 textInputView:{
     left: 10,
     fontSize: 17,
+    marginTop:-10,
 },
 
 switch:{
-    marginTop:20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+},
+
+switchText:{
+    right: 30,
 },
 
 viewService:{
