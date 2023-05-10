@@ -50,19 +50,22 @@ export default function SingIn({navigation}) {
         <Text style={SignInStyle.title}>
           Seja bem-vindo(a)!
         </Text>
-      </ImageBackground>
+      
 
       <Text style={SignInStyle.subtitle}>
           Entrar:
       </Text>
 
       <View style={SignInStyle.inputView}>
+        <View style={SignInStyle.area}>
         <Input
+          style={SignInStyle.inputEmail}
           placeholder = "E-mail"
           value = {email}
           onChangeText = {value => setEmail(value)} 
           keyboardType="email-address"
         />
+        </View>
         {inputEmailErr && <Text style={SignInStyle.messageErrorEmail}>Por favor digete um email valido!</Text>}
   
         <View style={SignInStyle.area}>
@@ -108,6 +111,7 @@ export default function SingIn({navigation}) {
           />
         </View>  
       </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
 }

@@ -2,8 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 specificContainer: {
-    backgroundColor: "#fff",
-    background: "#fff"
+    backgroundColor: "#fff"
 },
 
 signIn:{
@@ -35,29 +34,42 @@ title:{
 },
 
 subtitle:{
-    top: 330,
+    padding: 40,
+    top: 130,
     fontSize: 30,
-    left: 20,
+    left: -20,
     color: "#000",
     fontWeight:'bold',
 },
 
 inputView:{
     color: "#3A3A3A",
-    marginTop: 330,
+    marginTop: 110,
 },
 
 area: {
     flexDirection: 'row',
-    width: '90%',
+    width: '100%',
     height: 40,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 30,
+},
 
+inputEmail:{
+    marginTop: 0,
+},
+
+messageErrorEmail:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: -8,
+    height: 18,
 },
 
 inputPassword: {
     flexDirection: 'row',
-    width: '100%',
+    width: '90%',
     height: 40,
     alignItems: 'center',
     left: 12,
@@ -66,11 +78,21 @@ inputPassword: {
     borderBottomColor: "#808080",
 },
 
+messageErrorPassword:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: 3,
+    height: 18,
+},
+
 password:{
     color: "#2B47FC",
     marginLeft: 10,
     fontSize: 15,
-    marginTop: 20
+    marginTop: 150,
+    borderRadius: 2,
+    borderColor: "#000",
 },
 
 buttonSingIn: {
@@ -97,19 +119,5 @@ buttonImageIconStyle: {
     height: 40,
     width: 60,
     resizeMode: 'contain',
-},
-
-messageErrorEmail:{
-    color: '#FF0000',
-    fontSize: 14,
-    marginLeft: 10,
-    marginTop: -20
-},
-
-messageErrorPassword:{
-    color: '#FF0000',
-    fontSize: 14,
-    marginLeft: 10,
-    marginTop: 7
 },
 });
