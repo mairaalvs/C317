@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Image, TouchableOpacity, TextInput } from 'react-native';
-import { Button, Input, Text } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { ImageBackground, View, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { Input, Text } from 'react-native-elements';
 import { FontAwesome5 } from '@expo/vector-icons';
-import SignInStyle from '../styles/SignInStyle';
 import { validEmail, validPassword } from "../utils/regex";
-
+import SignInStyle from '../styles/SignInStyle';
 
 export default function SingIn({navigation}) {
 
@@ -85,7 +83,6 @@ export default function SingIn({navigation}) {
           </TouchableOpacity>
         </View>
         {inputPassordErr && <Text style={SignInStyle.messageErrorPassword}>Senha incorreta!</Text>}
-
       </View>
 
       <Text 
@@ -94,7 +91,7 @@ export default function SingIn({navigation}) {
       >
         Esqueceu sua senha?
       </Text>
-
+      
       <TouchableOpacity
         style={SignInStyle.buttonSingIn} 
         activeOpacity={0.5}

@@ -2,13 +2,15 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 specificContainer: {
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    background: "#fff"
 },
 
 signIn:{
     flex: 1,
     width: 380, 
     height: 340,
+
 },
 
 logo:{
