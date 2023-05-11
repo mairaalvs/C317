@@ -41,6 +41,7 @@ buttonName: {
     fontSize: 18,
     fontWeight:'bold',
     width: 170,
+    textAlign: 'auto'
 },
 
 buttonMessage: {

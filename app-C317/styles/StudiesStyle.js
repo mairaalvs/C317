@@ -12,10 +12,15 @@ view:{
     alignItems: 'center',
 },
 
+group:{
+    
+},
+
 ellipse:{
     width: 375,
     height: 260,
-    justifyContent: 'space-around', 
+    justifyContent: 'center',
+    marginTop: 170,
 },
 
 title:{
@@ -23,7 +28,7 @@ title:{
     fontSize: 20,
     textAlign: 'left',
     color: "#2743F3",
-    
+    marginTop: -330,
 },
 
 subtitle:{
@@ -31,6 +36,7 @@ subtitle:{
     fontSize: 18,
     textAlign: 'left',
     color: "#7C2AFF",
+    marginTop: 15,
 },
 
 buttonSingIn: {
@@ -41,8 +47,9 @@ buttonSingIn: {
     height: 45,
     left: 40,  
     width: "80%",
-    marginTop: 0, 
-    borderRadius: 16, 
+    marginTop: 40, 
+    borderRadius: 16,
+    //marginEnd: 10, 
 },
 
 buttonTextStyle: {

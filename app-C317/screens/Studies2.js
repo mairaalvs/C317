@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Image, SafeAreaView, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Text, View, Image, TouchableOpacity, ScrollView, Linking } from 'react-native';
 import StudiesStyle2 from '../styles/StudiesStyle2';
 
 export default function Studies2({navigation}) {
@@ -10,12 +9,33 @@ export default function Studies2({navigation}) {
         navigation.navigate("Profile2")
     }
 
+    const link1 = () => {
+        Linking.openURL('https://www.google.com');
+    }
+
+    const link2 = () => {
+        Linking.openURL('https://www.google.com');
+    }
+
+    const link3 = () => {
+        Linking.openURL('https://www.google.com');
+    }
+
+    const link4 = () => {
+        Linking.openURL('https://www.google.com');
+    }
+
+    const link5 = () => {
+        Linking.openURL('https://www.google.com');
+    }
+
     return (
         <ScrollView>
             <View style = {StudiesStyle2.view}>
                 <TouchableOpacity
                     style={StudiesStyle2.button} 
                     activeOpacity={0.5}
+                    onPress={() => link1()}
                 >
                     <View style={StudiesStyle2.viewImage}>
                         <Image
@@ -39,6 +59,7 @@ export default function Studies2({navigation}) {
                 <TouchableOpacity
                     style={StudiesStyle2.button} 
                     activeOpacity={0.5}
+                    onPress={() => link2()}
                 >
                     <View style={StudiesStyle2.viewImage}>
                         <Image
@@ -62,6 +83,7 @@ export default function Studies2({navigation}) {
                 <TouchableOpacity
                     style={StudiesStyle2.button} 
                     activeOpacity={0.5}
+                    onPress={() => link3()}
                 >
                     <View style={StudiesStyle2.viewImage}>
                         <Image
@@ -85,6 +107,7 @@ export default function Studies2({navigation}) {
                 <TouchableOpacity
                     style={StudiesStyle2.button} 
                     activeOpacity={0.5}
+                    onPress={() => link4()}
                 >
                     <View style={StudiesStyle2.viewImage}>
                         <Image
