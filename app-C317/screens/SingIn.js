@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, View, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { ImageBackground, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { validEmail, validPassword } from "../utils/regex";
@@ -50,67 +50,66 @@ export default function SingIn({navigation}) {
         <Text style={SignInStyle.title}>
           Seja bem-vindo(a)!
         </Text>
-      
 
-      <Text style={SignInStyle.subtitle}>
-          Entrar:
-      </Text>
-
-      <View style={SignInStyle.inputView}>
-        <View style={SignInStyle.area}>
-        <Input
-          style={SignInStyle.inputEmail}
-          placeholder = "E-mail"
-          value = {email}
-          onChangeText = {value => setEmail(value)} 
-          keyboardType="email-address"
-        />
-        </View>
-        {inputEmailErr && <Text style={SignInStyle.messageErrorEmail}>Por favor digete um email valido!</Text>}
-  
-        <View style={SignInStyle.area}>
-          <TextInput
-            style={SignInStyle.inputPassword}
-            placeholder="Senha"
-            secureTextEntry = {password}
-            value = {password}  
-            onChangeText = {value => setPassword(value)} 
-          />
-
-          <TouchableOpacity onPress={() => setPassword(!password)}>
-            {password == true ?
-              <FontAwesome5 name="eye-slash" size={24} color="black" />
-              :
-              <FontAwesome5 name="eye" size={24} color="black" />
-            }
-          </TouchableOpacity>
-        </View>
-        {inputPassordErr && <Text style={SignInStyle.messageErrorPassword}>Senha incorreta!</Text>}
-      </View>
-
-      <Text 
-        style={SignInStyle.password}
-        onPress={() => recoverPassword()}
-      >
-        Esqueceu sua senha?
-      </Text>
-      
-      <TouchableOpacity
-        style={SignInStyle.buttonSingIn} 
-        activeOpacity={0.5}
-        onPress={() => validate()}
-      >
-        <Text style={SignInStyle.buttonTextStyle}> 
-          Entrar 
+        <Text style={SignInStyle.subtitle}>
+            Entrar:
         </Text>
 
-        <View>
-          <ImageBackground 
-            source={require('../assets/Circles-Arrow.png')} 
-            style={SignInStyle.buttonImageIconStyle} 
+        <View style={SignInStyle.inputView}>
+          <View style={SignInStyle.area}>
+          <Input
+            style={SignInStyle.inputEmail}
+            placeholder = "E-mail"
+            value = {email}
+            onChangeText = {value => setEmail(value)} 
+            keyboardType="email-address"
           />
-        </View>  
-      </TouchableOpacity>
+          </View>
+          {inputEmailErr && <Text style={SignInStyle.messageErrorEmail}>Por favor digete um email valido!</Text>}
+    
+          <View style={SignInStyle.area}>
+            <TextInput
+              style={SignInStyle.inputPassword}
+              placeholder="Senha"
+              secureTextEntry = {password}
+              value = {password}  
+              onChangeText = {value => setPassword(value)} 
+            />
+
+            <TouchableOpacity onPress={() => setPassword(!password)}>
+              {password == true ?
+                <FontAwesome5 name="eye-slash" size={24} color="black" />
+                :
+                <FontAwesome5 name="eye" size={24} color="black" />
+              }
+            </TouchableOpacity>
+          </View>
+          {inputPassordErr && <Text style={SignInStyle.messageErrorPassword}>Senha incorreta!</Text>}
+        </View>
+
+        <Text 
+          style={SignInStyle.password}
+          onPress={() => recoverPassword()}
+        >
+          Esqueceu sua senha?
+        </Text>
+        
+        <TouchableOpacity
+          style={SignInStyle.buttonSingIn} 
+          activeOpacity={0.5}
+          onPress={() => validate()}
+        >
+          <Text style={SignInStyle.buttonTextStyle}> 
+            Entrar 
+          </Text>
+
+          <View>
+            <ImageBackground 
+              source={require('../assets/Circles-Arrow.png')} 
+              style={SignInStyle.buttonImageIconStyle} 
+            />
+          </View>  
+        </TouchableOpacity>
       </ImageBackground>
     </View>
   );

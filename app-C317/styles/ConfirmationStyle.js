@@ -33,10 +33,13 @@ title:{
 },
 
 subtitle:{
-    top: 360,
+    padding: 20,
+    marginTop: 180,
     fontSize: 18,
-    left: 9,
+    left: -10,
     color: "#3f3f3f",
+    height: 200,
+    textAlign: 'justify'
 },
 
 buttonSingIn: {
@@ -47,7 +50,7 @@ buttonSingIn: {
     height: 45,
     left: 40,  
     width: "80%",
-    marginTop: 450, 
+    marginTop: 35, 
     borderRadius: 16, 
 },
 

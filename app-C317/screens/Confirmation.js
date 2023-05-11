@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { Button, Input, Text } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
+import { Text } from 'react-native-elements';
 import ConfirmationStyle from '../styles/ConfirmationStyle';
 
 
@@ -24,28 +22,28 @@ export default function Confirmation({navigation}) {
         <Text style={ConfirmationStyle.title}>
           Seja bem-vindo(a)!
         </Text>
-      </ImageBackground>
-
-      <Text style={ConfirmationStyle.subtitle}>
-        Um link será enviado para o seu endereço de email informado para validação da conta.
-      </Text>
-
-      <TouchableOpacity
-        style={ConfirmationStyle.buttonSingIn} 
-        activeOpacity={0.5}
-        onPress={() => login()}
-      >
-        <Text style={ConfirmationStyle.buttonTextStyle}> 
-          Ok 
+      
+        <Text style={ConfirmationStyle.subtitle}>
+          Um link será enviado para o seu endereço de email informado no cadastro para confirmação da conta.
         </Text>
 
-        <View>
-          <ImageBackground 
-            source={require('../assets/Circles-Arrow.png')} 
-            style={ConfirmationStyle.buttonImageIconStyle} 
-          />
-        </View>  
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={ConfirmationStyle.buttonSingIn} 
+          activeOpacity={0.5}
+          onPress={() => login()}
+        >
+          <Text style={ConfirmationStyle.buttonTextStyle}> 
+            Ok 
+          </Text>
+
+          <View>
+            <ImageBackground 
+              source={require('../assets/Circles-Arrow.png')} 
+              style={ConfirmationStyle.buttonImageIconStyle} 
+            />
+          </View>  
+        </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
 }

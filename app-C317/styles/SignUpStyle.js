@@ -33,14 +33,15 @@ title:{
 },
 
 subtitle:{
-    top: 230,
+    padding: 30,
+    top: 30,
     fontSize: 30,
-    left: 20,
+    left: -5,
     fontWeight:'bold',
 },
 
 inputView:{
-    marginTop: 290,
+    marginTop: 120,
 },
 
 area: {
@@ -48,7 +49,23 @@ area: {
     width: '90%',
     height: 40,
     alignItems: 'center',
-    //marginTop: 20
+    marginTop: 0,
+},
+
+name:{
+    marginTop: 0,
+},
+
+inputEmail:{
+    marginTop: 20
+},
+
+messageErrorEmail:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: -3,
+    height: 16,
 },
 
 inputPassword: {
@@ -60,6 +77,27 @@ inputPassword: {
     fontSize: 19,
     //borderBottomWidth: 0.8,
     borderBottomColor: "#808080",
+    marginTop: 45
+},
+
+messageErrorPassword:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: 9,
+    height: 18,
+},
+
+cpf:{
+    marginTop: 60,
+},
+
+messageErrorCpf:{
+    color: '#FF0000',
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: 17,
+    height: 18,
 },
 
 buttonSingIn: {
@@ -70,7 +108,7 @@ buttonSingIn: {
     height: 45,
     left: 40,  
     width: "80%",
-    marginTop: 20, 
+    marginTop: 250, 
     borderRadius: 16, 
 },
 
@@ -88,29 +126,4 @@ buttonImageIconStyle: {
     width: 60,
     resizeMode: 'contain',
 },
-
-messageErrorEmail:{
-    color: '#FF0000',
-    fontSize: 14,
-    marginLeft: 10,
-    marginTop: -20
-},
-
-messageErrorPassword:{
-    color: '#FF0000',
-    fontSize: 14,
-    marginLeft: 10,
-    marginTop: -8
-},
-
-messageErrorCpf:{
-    color: '#FF0000',
-    fontSize: 14,
-    marginLeft: 10,
-    marginTop: -20
-},
-
-inputEmail:{
-    marginTop: -10
-}
 });
