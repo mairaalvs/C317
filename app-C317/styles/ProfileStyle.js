@@ -37,9 +37,12 @@ imageProfile:{
 settings:{
     marginTop: 125,
     right: 110,
-    height: 30,
-    width: 30,
+    height: 35,
+    width: 35,
     resizeMode: 'contain',
+    //borderRadius: 16,
+    //borderWidth: 2,
+    //borderColor:  '#2743FB'
 },
 
 inputView:{

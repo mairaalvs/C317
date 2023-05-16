@@ -77,11 +77,10 @@ export default function Profile({navigation}) {
                 value={ligado}
                 onValueChange={toggleLigado}
               >
- 
               </Switch>
             </View>
             
-            <Text style={ProfileSettingsStyle.textInputView}>
+            <Text style={ProfileSettingsStyle.textInputView2}>
               Serviço oferecido:
             </Text>
 
@@ -90,7 +89,7 @@ export default function Profile({navigation}) {
               color = "#2743FD" 
             />
 
-            <Text style={ProfileSettingsStyle.textInputView}>
+            <Text style={ProfileSettingsStyle.textInputView2}>
               Valor do Serviço:
             </Text>
 
