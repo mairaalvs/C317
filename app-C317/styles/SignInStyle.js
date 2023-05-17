@@ -120,4 +120,25 @@ buttonImageIconStyle: {
     width: 60,
     resizeMode: 'contain',
 },
+
+container: {
+    flex: 1,
+    justifyContent: 'center',
+},
+
+horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+},
+
+loading: {
+    position: 'absolute',
+    left: 20,
+    right: 0,
+    top: 50,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
+}
 });

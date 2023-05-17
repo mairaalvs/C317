@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, View, Image, TouchableOpacity, TextInput } from 'react-native';
+import { ImageBackground, View, Image, TouchableOpacity, TextInput, Alert, ActivityIndicator } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { validEmail, validPassword } from "../utils/regex";
@@ -7,13 +7,17 @@ import SignInStyle from '../styles/SignInStyle';
 
 export default function SingIn({navigation}) {
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState(true)
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
 
   const [inputEmailErr, setInputEmailErr] = useState(false);
   const [inputPassordErr, setInputPasswordErr] = useState(false);
 
-  const validate = () => {
+  const [loading , setLoading ] = useState(false);
+
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  const validate = async() => {
     if (!validEmail.test(email)) {
       setInputEmailErr(true);
     } else {
@@ -23,15 +27,37 @@ export default function SingIn({navigation}) {
       setInputPasswordErr(true);
     } else {
       setInputPasswordErr(false);
-      } 
-    if((validEmail.test(email)) && (validPassword.test(password))){
-      navigation.navigate("Group")
+      }
+
+    const settings = {
+      method: 'POST',
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "username": email,
+        "password": password
+      })
+    };  
+
+    try {
+      setLoading(true)
+      await sleep(5000)
+      const response = await fetch('http://hourglass.codando.engineer:8080/api/v1/users/authenticate', settings)
+
+      if(response.ok){
+        navigation.navigate("Group")
+      }else{
+        setInputEmailErr(true);
+        setInputPasswordErr(true);
+      }
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível carregar os dados do servidor');
     }
+    finally{setLoading(false)}
   };
 
-  const login = async() => {
-    navigation.navigate("Group")
-  }
   const recoverPassword = async() => {
     navigation.navigate("Redirection")
   }
@@ -65,7 +91,7 @@ export default function SingIn({navigation}) {
             keyboardType="email-address"
           />
           </View>
-          {inputEmailErr && <Text style={SignInStyle.messageErrorEmail}>Por favor digete um email valido!</Text>}
+          {inputEmailErr && <Text style={SignInStyle.messageErrorEmail}>Verifique se o email digitado esta correta!</Text>}
     
           <View style={SignInStyle.area}>
             <TextInput
@@ -84,7 +110,7 @@ export default function SingIn({navigation}) {
               }
             </TouchableOpacity>
           </View>
-          {inputPassordErr && <Text style={SignInStyle.messageErrorPassword}>Senha incorreta!</Text>}
+          {inputPassordErr && <Text style={SignInStyle.messageErrorPassword}>Verifique se a senha digitada esta correto!</Text>}
         </View>
 
         <Text 
@@ -110,6 +136,11 @@ export default function SingIn({navigation}) {
             />
           </View>  
         </TouchableOpacity>
+
+        {loading && 
+        <View style={[SignInStyle.loading]}>
+          <ActivityIndicator size="large" color="#2B47FC" />
+        </View>}
       </ImageBackground>
     </View>
   );

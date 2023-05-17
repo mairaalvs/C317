@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
+import { ImageBackground, View, Image, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import { FontAwesome5 } from '@expo/vector-icons';
 import SignUpStyle from '../styles/SignUpStyle';
@@ -17,7 +17,9 @@ export default function SingUp({navigation}) {
   const [inputPassordErr, setInputPasswordErr] = useState(false);
   const [inputCpfErr, setInputCpfErr] = useState(false);
 
-  const validate = () => {
+  const [loading , setLoading ] = useState(false);
+
+  const validate = async() => {
     if (!validEmail.test(email)) {
       setInputEmailErr(true);
     } else {
@@ -32,10 +34,42 @@ export default function SingUp({navigation}) {
       setInputCpfErr(true);
     } else {
       setInputCpfErr(false);
-      }  
-    if((validEmail.test(email)) && (validPassword.test(password)) && (validCpf.test(cpf))){
-      navigation.navigate("Confirmation")
+      }
+
+    const settings = {
+      method: 'POST',
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        name,
+        cpf: cpf.replace(/\D/g, "")
+      })
+    };
+    
+    try {
+      setLoading(true)
+      const response = await fetch('http://hourglass.codando.engineer:8080/api/v1/users/register', settings)
+      console.log(await response.json())
+      console.log(settings.body)
+
+      if(response.ok){
+        console.log("entrou no if")
+        navigation.navigate("Confirmation")
+      }else{
+        setInputEmailErr(true);
+        setInputPasswordErr(true);
+        setInputCpfErr(true);
+        console.log("entrou no else")
+      }
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível carregar os dados do servidor');
     }
+    finally{setLoading(false)}
+      
   };
 
   return (
@@ -127,6 +161,11 @@ export default function SingUp({navigation}) {
             /> 
           </View>  
         </TouchableOpacity>
+
+        {loading && 
+        <View style={[SignUpStyle.loading]}>
+          <ActivityIndicator size="large" color="#2B47FC" />
+        </View>}
       </ImageBackground>
     </View>
     );
