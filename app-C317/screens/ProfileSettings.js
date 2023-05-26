@@ -79,7 +79,7 @@ export default function Profile({navigation}) {
               >
               </Switch>
             </View>
-            
+             
             <Text style={ProfileSettingsStyle.textInputView2}>
               Serviço oferecido:
             </Text>
