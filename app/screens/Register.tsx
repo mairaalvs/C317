@@ -241,10 +241,10 @@ const styles = StyleSheet.create({
 
     areaCpf: {
         flexDirection: 'row',
-        width: '98%',
-        height: 45,
+        width: '90%',
+        height: 40,
         alignItems: 'center',
-        marginTop: 10,
+        marginTop: 20,
         //borderRadius: 16,
         //borderWidth: 2,
         //borderColor: '#2743FB'
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     },
 
     inputEmail: {
-        marginTop: 20
+        marginTop: 0
     },
 
     messageErrorEmail: {
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
         fontSize: 19,
         //borderBottomWidth: 0.8,
         borderBottomColor: "#808080",
-        marginTop: 45,
+        marginTop: 0,
     },
 
     messageErrorPassword: {
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
     },
 
     cpf: {
-        marginTop: 60,
+        marginTop: 0,
     },
 
     messageErrorCpf: {
