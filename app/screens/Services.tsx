@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { ServiceService } from '../services/ServiceService';
 import { ScreenProp } from '../types';
 import { ServiceSummary } from '../api/services';
+import SearchBar from '../components/SearchBar';
 
 // type Props = NativeStackScreenProps<RootStackParamList, 'Services'>;
 
@@ -11,17 +12,48 @@ const Services = ({ navigation }: ScreenProp) => {
   const [loading, setLoading] = useState(false);
   const [text, setText] = useState("");
   const [services, setServices] = useState<ServiceSummary[]>([]);
+  const [filteredServices, setFilteredServices] = useState<ServiceSummary[]>([]);
+
+  const [searchPhrase, setSearchPhrase] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   const profile = (id: string) => {
     navigation.navigate('ProfileService', { id });
   }
+
+  const searchFilterFunction = (text: string) => {
+    // Check if searched text is not blank
+    if (text) {
+      // Inserted text is not blank
+      // Filter the masterDataSource and update FilteredDataSource
+      const newData = services.filter(function (item) {
+        // Applying filter for the inserted text in search bar
+        const itemData = item.name
+          ? item.name.toUpperCase()
+          : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilteredServices(newData);
+      setSearchPhrase(text);
+    } else {
+      // Inserted text is blank
+      // Update FilteredDataSource with masterDataSource
+      setFilteredServices(services);
+      setSearchPhrase(text);
+    }
+  };
+
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', async () => {
       setLoading(true);
       try {
         var response = await ServiceService.list();
-        setServices(response.data);
+        if (filteredServices.length == 0) {
+          setServices(response.data);
+          setFilteredServices(response.data);
+        }
       } catch (error) {
         alert(error);
       } finally {
@@ -37,20 +69,12 @@ const Services = ({ navigation }: ScreenProp) => {
     <ScrollView>
       <SafeAreaView style={styles.view}>
         <View style={styles.header}>
-          <TextInput
-            style={styles.input}
-            placeholder='Buscar'
-            value={text}
-            onChangeText={(value) =>
-              setText(value)}
-          >
-            <Icon
-              name="search"
-              size={30}
-              color='#3D56FA'
-              onPress={() => { }}
-            />
-          </TextInput>
+          <SearchBar
+            searchPhrase={searchPhrase}
+            setSearchPhrase={(text) => searchFilterFunction(text)}
+            clicked={clicked}
+            setClicked={setClicked}
+          />
         </View>
 
         <Text style={styles.textSubTitle}>
@@ -59,7 +83,7 @@ const Services = ({ navigation }: ScreenProp) => {
 
 
 
-        {services.map((service) => (
+        {filteredServices.map((service) => (
           <TouchableOpacity
             style={styles.button}
             activeOpacity={0.5}
