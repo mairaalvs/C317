@@ -1,4 +1,4 @@
-import { ImageBackground, View, Image, TouchableOpacity, TextInput, StyleSheet, Alert } from 'react-native';
+import { ImageBackground, View, Image, TouchableOpacity, TextInput, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import React, { useEffect, useState } from 'react'
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -12,7 +12,7 @@ import { SPINNER_TEXT_STYLE } from '../utils/Constants';
 
 const Login = ({ navigation }: ScreenProp) => {
 
-    const [loading1, setLoading1] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -42,17 +42,18 @@ const Login = ({ navigation }: ScreenProp) => {
     const login = async () => {
         ensureLoginCredentials();
         try {
-            setLoading1(true);
+            setLoading(true);
             await onLogin!({ email, password });
         } catch (e) {
             Alert.alert("Credenciais inválidas!");
         } finally {
-            setLoading1(false);
+            setLoading(false);
         }
     }
 
     const recoverPassword = async () => {
         navigation.navigate('Redirection');
+
     }
 
     return (
@@ -65,11 +66,7 @@ const Login = ({ navigation }: ScreenProp) => {
                     source={require('../assets/Hourglass.png')}
                     style={styles.logo}
                 />
-                {/* <Spinner
-                    visible={loading1}
-                    textContent={'Loading...'}
-                    textStyle={SPINNER_TEXT_STYLE}
-                /> */}
+
                 <Text style={styles.title}>
                     Seja bem-vindo(a)!
                 </Text>
@@ -136,6 +133,12 @@ const Login = ({ navigation }: ScreenProp) => {
                     </View>
                 </TouchableOpacity>
             </ImageBackground>
+            {loading ?
+                <ActivityIndicator size="large" style={{
+                    backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1, height: '100%'
+                }} />
+                : null
+            }
         </View>
     )
 }
@@ -153,7 +156,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     specificContainer: {
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
     },
 
     signIn: {
