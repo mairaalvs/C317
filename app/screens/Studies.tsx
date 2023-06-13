@@ -25,11 +25,11 @@ const Studies = ({ navigation }: ScreenProp) => {
 
           <View style={styles.ellipse}>
             <Text style={styles.title}>
-              Como precificar seus serviços
+              Seção de educação:
             </Text>
 
             <Text style={styles.subtitle}>
-              Aprenda como precificar corretamente os seus serviços e a sua hora de trabalho
+              Acesse conteúdos como matérias, podcasts, livros e informações úteis para sua vida profissional!
             </Text>
 
             <TouchableOpacity
