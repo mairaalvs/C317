@@ -31,7 +31,7 @@ const Group = () => {
 
             <Tab.Screen
                 navigationKey='Service'
-                name="Service"
+                name="Serviços"
                 component={Services}
                 options={{
                     tabBarLabel: 'Serviço',
@@ -42,7 +42,7 @@ const Group = () => {
             />
 
             <Tab.Screen
-                name="Studies"
+                name="Educação"
                 component={Studies}
                 options={{
                     tabBarLabel: 'Educação',
