@@ -9,6 +9,11 @@ import { SPINNER_TEXT_STYLE } from '../utils/Constants';
 import Spinner from 'react-native-loading-spinner-overlay/lib';
 import { ServiceCreateRequest } from '../api/services';
 
+import Constants from "expo-constants";
+import * as Permissions from "expo-permissions";
+import * as ImagePicker from "expo-image-picker";
+import Axios from "axios";
+
 type Props = NativeStackScreenProps<StackParamList, 'ProfileSettings'>
 
 const ProfileSettings = ({ route, navigation }: Props) => {
@@ -19,8 +24,45 @@ const ProfileSettings = ({ route, navigation }: Props) => {
   const [servicePrice, setServicePrice] = useState('')
   const [ligado, setLigado] = useState(true)
   const [loading, setLoading] = useState(false);
+  const [avatar, setAvatar] = useState(null);
 
   const paramsRoute = route.params;
+
+  async function imagePickerCall() {
+    if (Constants.platform?.ios) {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
+      if (status !== "granted") {
+        alert("Nós precisamos dessa permissão.");
+        return;
+      }
+    }
+
+    const data = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images
+    });
+
+    if (data.canceled) {
+      return;
+    }
+
+    if (!data.assets[0].uri) {
+      return;
+    }
+
+    setAvatar(data);
+  }
+
+  async function uploadImage() {
+    const data = new FormData();
+
+    data.append("avatar", {
+      uri: avatar.uri,
+      type: avatar.type
+    });
+
+    await Axios.post("http://localhost:3333/files", data);
+  }
 
   const save = async () => {
     try {
@@ -77,10 +119,12 @@ const ProfileSettings = ({ route, navigation }: Props) => {
           style={styles.profile}
         >
           <View style={styles.settingsImage}>
-            <Image
-              source={require('../assets/ImageProfile.jpg')}
-              style={styles.imageProfile}
-            />
+            <TouchableOpacity style={styles.imageProfile} onPress={imagePickerCall}>
+              <Image
+                source={require('../assets/Missing_avatar.svg.png')}
+                style={styles.buttonImageIconProfile}
+              />
+            </TouchableOpacity>
           </View>
 
           <View style={styles.inputView}>
@@ -209,6 +253,12 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.8,
     shadowRadius: 2
+  },
+
+  buttonImageIconProfile: {
+    height: 150,
+    width: 150,
+    borderRadius: 75,
   },
 
   settings: {
