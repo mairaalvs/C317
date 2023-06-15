@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, ImageBackground, ScrollView, Switch, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ImageBackground, ScrollView, Switch, Alert, Platform } from 'react-native';
 import { Input } from 'react-native-elements';
 import { StackParamList } from '../types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -8,11 +8,8 @@ import { UserService } from '../services/UserService';
 import { SPINNER_TEXT_STYLE } from '../utils/Constants';
 import Spinner from 'react-native-loading-spinner-overlay/lib';
 import { ServiceCreateRequest } from '../api/services';
-
-import Constants from "expo-constants";
-import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
-import Axios from "axios";
+import { UserUpdateRequest } from '../api/user';
 
 type Props = NativeStackScreenProps<StackParamList, 'ProfileSettings'>
 
@@ -24,62 +21,65 @@ const ProfileSettings = ({ route, navigation }: Props) => {
   const [servicePrice, setServicePrice] = useState('')
   const [ligado, setLigado] = useState(true)
   const [loading, setLoading] = useState(false);
-  const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState<ImagePicker.ImagePickerSuccessResult>();
+  const [hasGalleryPermission, setHasGalleryPermission] = useState(false);
 
   const paramsRoute = route.params;
 
-  async function imagePickerCall() {
-    if (Constants.platform?.ios) {
-      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+  useEffect(() => {
+    (async () => {
+      const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      setHasGalleryPermission(galleryStatus.status === "granted");
+    })();
+  }, []);
 
-      if (status !== "granted") {
-        alert("Nós precisamos dessa permissão.");
-        return;
-      }
-    }
-
-    const data = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images
-    });
-
-    if (data.canceled) {
+  const pickImage = async () => {
+    if (!hasGalleryPermission) {
+      Alert.alert("Precisamos de acesso a sua galeria de fotos.");
       return;
     }
 
-    if (!data.assets[0].uri) {
-      return;
+    const options: ImagePicker.ImagePickerOptions = {
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1
+    };
+
+    let result = await ImagePicker.launchImageLibraryAsync(options);
+    if (!result.canceled) {
+      setAvatar(result);
     }
-
-    setAvatar(data);
-  }
-
-  async function uploadImage() {
-    const data = new FormData();
-
-    data.append("avatar", {
-      uri: avatar.uri,
-      type: avatar.type
-    });
-
-    await Axios.post("http://localhost:3333/files", data);
   }
 
   const save = async () => {
     try {
       setLoading(true);
 
-      await UserService.update({
-        name,
-        address
-      });
+      if (name || address || avatar) {
+        const userUpdate: UserUpdateRequest = {
+          name,
+          address
+        }
+
+        if (avatar?.assets[0] != null) {
+          const picture = await UserService.uploadPicture(avatar?.assets[0].fileName,
+            avatar?.assets[0].type,
+            Platform.OS === 'ios' ? avatar?.assets[0].uri.replace('file://', '') : avatar?.assets[0].uri);
+          userUpdate.pictureUploadId = picture.data.uploadId;
+        }
+
+        await UserService.update(userUpdate);
+      }
 
       if (ligado) {
-        if (paramsRoute.serviceId) {          
-          await ServiceService.update(paramsRoute.serviceId, {
+        if (paramsRoute.user?.services[0]?.id) {
+          await ServiceService.update(paramsRoute.user?.services[0]?.id, {
             name: serviceName,
             contactLink: contactLink,
             price: parseFloat(servicePrice),
           });
+
           Alert.alert("Serviço atualizado com sucesso!");
         } else {
           var serviceRequest: ServiceCreateRequest = {
@@ -87,13 +87,13 @@ const ProfileSettings = ({ route, navigation }: Props) => {
             description: 'Meu serviço',
             contactLink: contactLink,
             price: parseFloat(servicePrice),
-            userId: paramsRoute.userId,
+            userId: paramsRoute.user!.id,
           };
           await ServiceService.create(serviceRequest);
           Alert.alert("Serviço ativado com sucesso!");
         }
-      } else if (!ligado && paramsRoute.serviceId) {        
-        await ServiceService.delete(paramsRoute.serviceId);
+      } else if (!ligado && paramsRoute.user?.services[0]?.id) {
+        await ServiceService.delete(paramsRoute.user?.services[0]?.id);
         Alert.alert("Serviço desativado com sucesso!");
       }
       navigation.goBack();
@@ -119,11 +119,15 @@ const ProfileSettings = ({ route, navigation }: Props) => {
           style={styles.profile}
         >
           <View style={styles.settingsImage}>
-            <TouchableOpacity style={styles.imageProfile} onPress={imagePickerCall}>
-              <Image
+            <TouchableOpacity style={styles.imageProfile} onPress={pickImage}>
+              {avatar?.assets[0].uri ? <Image
+                source={{ uri: avatar?.assets[0].uri }}
+                style={styles.buttonImageIconProfile}
+              /> : <Image
                 source={require('../assets/Missing_avatar.svg.png')}
                 style={styles.buttonImageIconProfile}
-              />
+              />}
+
             </TouchableOpacity>
           </View>
 

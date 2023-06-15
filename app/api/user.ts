@@ -14,10 +14,16 @@ export interface UserModel {
     state: string;
     country: string;
     postalCode: string;
+    pictureUploadId: string;
     services: ServiceSummary[];
 }
 
 export interface UserUpdateRequest {
     name: string;
     address: string;
+    pictureUploadId?: string;
+}
+
+export interface PictureUploadResponse {
+    uploadId: string;
 }

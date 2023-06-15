@@ -5,6 +5,7 @@ import { ServiceService } from '../services/ServiceService';
 import { ScreenProp } from '../types';
 import { ServiceSummary } from '../api/services';
 import SearchBar from '../components/SearchBar';
+import { UserService } from '../services/UserService';
 
 // type Props = NativeStackScreenProps<RootStackParamList, 'Services'>;
 
@@ -50,10 +51,15 @@ const Services = ({ navigation }: ScreenProp) => {
       setLoading(true);
       try {
         var response = await ServiceService.list();
-        if (filteredServices.length == 0) {
-          setServices(response.data);
-          setFilteredServices(response.data);
-        }
+        await Promise.all(response.data.map(async (s) => {
+          if (s.userPictureId == null) return;
+          const picture = await UserService.getProfilePicture(s.userPictureId);
+          s.userPictureId = picture;
+        }));
+
+        setServices(response.data);
+        setFilteredServices(response.data);
+
       } catch (error) {
         alert(error);
       } finally {
@@ -94,7 +100,7 @@ const Services = ({ navigation }: ScreenProp) => {
               <Image
                 style={styles.avatar}
                 resizeMode='contain'
-                source={{ uri: 'https://placeimg.com/140/140/any' }}
+                source={{ uri: service.userPictureId ?? 'https://placeimg.com/140/140/any' }}
               />
 
               <View style={styles.viewArrow}>

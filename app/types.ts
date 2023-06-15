@@ -1,4 +1,5 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { UserModel } from './api/user';
 
 export type StackParamList = {
     Login: undefined;
@@ -14,8 +15,7 @@ export type StackParamList = {
     Profile: undefined;
     Profile2: undefined;
     ProfileSettings: {
-        userId: string,
-        serviceId: string | undefined,
+        user: UserModel | undefined,
     };
 };
 

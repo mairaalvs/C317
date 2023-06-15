@@ -3,11 +3,11 @@ import * as SecureStore from 'expo-secure-store';
 
 const client = axios.create({
     baseURL: 'https://hourglass-api.azurewebsites.net/api/v1/',
-    // baseURL: 'https://0da8-179-106-188-179.ngrok-free.app/api/v1/',
+    // baseURL: 'https://519b-179-106-188-179.ngrok-free.app/api/v1/',
     headers: {
         'Content-Type': 'application/json',
     },
-    timeout: 5000,
+    timeout: 20000,
 });
 
 client.interceptors.request.use(

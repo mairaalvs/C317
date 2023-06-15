@@ -8,6 +8,7 @@ import { ServiceService } from '../services/ServiceService';
 import { ServiceSummary } from '../api/services';
 import { SPINNER_TEXT_STYLE } from '../utils/Constants';
 import Spinner from 'react-native-loading-spinner-overlay/lib';
+import { UserService } from '../services/UserService';
 
 type Props = NativeStackScreenProps<StackParamList, 'ProfileService'>
 
@@ -21,6 +22,10 @@ const ProfileService = ({ route, navigation }: Props) => {
       try {
         setLoading(true);
         var service = await ServiceService.get(paramsRoute.id);
+        if (service.data.userPictureId != null) {
+          const picture = await UserService.getProfilePicture(service.data.userPictureId);
+          service.data.userPictureId = picture;
+        }
         setServiceInfos(service.data);
       } catch (e) {
         Alert.alert("Erro ao carregar o perfil do prestador de serviço!");
@@ -56,7 +61,7 @@ const ProfileService = ({ route, navigation }: Props) => {
         style={styles.profile}
       >
         <Image
-          source={require('../assets/ImageProfile.jpg')}
+          source={{ uri: serviceInfos?.userPictureId ?? 'https://placeimg.com/140/140/any' }}
           style={styles.imageProfile}
         />
 

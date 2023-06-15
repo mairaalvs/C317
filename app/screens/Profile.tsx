@@ -12,6 +12,7 @@ const Profile = ({ navigation }: ScreenProp) => {
 
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState<UserModel>()
+    const [avatar, setAvatar] = useState<string | null>(null); // initialize it to an empty string
 
     const { onLogout } = useAuth();
 
@@ -21,8 +22,19 @@ const Profile = ({ navigation }: ScreenProp) => {
     }
 
     const settings = () => {
-        navigation.navigate("ProfileSettings", { userId: user!.id, serviceId: user?.services[0]?.id })
+        navigation.navigate("ProfileSettings", { user })
     }
+    const loadImage = async (user: UserModel) => {
+        try {
+            if (user?.pictureUploadId == null) {
+                return;
+            }
+            const picture = await UserService.getProfilePicture(user!.pictureUploadId);
+            setAvatar(picture);
+        } catch (error) {
+            console.error(error)
+        }
+    };
 
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', async () => {
@@ -30,6 +42,7 @@ const Profile = ({ navigation }: ScreenProp) => {
             try {
                 const response = await UserService.me();
                 setUser(response.data);
+                await loadImage(response.data);
             } catch (error) {
                 alert(error);
             } finally {
@@ -55,10 +68,13 @@ const Profile = ({ navigation }: ScreenProp) => {
                     style={styles.profile}
                 >
                     <View style={styles.settingsImage}>
-                        <Image
-                            source={require('../assets/ImageProfile.jpg')}
+                        {avatar ? <Image
+                            source={{ uri: avatar }}
                             style={styles.imageProfile}
-                        />
+                        /> : <Image
+                            source={require('../assets/Missing_avatar.svg.png')}
+                            style={styles.imageProfile}
+                        />}
 
                         <TouchableOpacity
                             activeOpacity={0.5}
